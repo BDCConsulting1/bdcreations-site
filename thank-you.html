@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — BDC Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0D1117;
+      --cream: #FAF8F4;
+      --gold: #C8A24E;
+      --gold-light: #E8D5A0;
+      --navy: #1B2A4A;
+      --warm-gray: #9A958E;
+      --off-white: #F2EFE9;
+      --border: rgba(13,17,23,0.08);
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .thank-you-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .thank-you-card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--warm-gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-block;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .small-note {
+      font-size: 0.82rem;
+      margin-top: 1.75rem;
+    }
+
+    @media (max-width: 640px) {
+      .thank-you-card {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-wrap">
+    <div class="thank-you-card">
+      <div class="eyebrow">Thank You</div>
+      <h1>Your guide is ready.</h1>
+      <p>
+        Thanks for requesting <strong>Top 7 Mistakes U.S. Companies Make Entering Nigeria</strong>.
+        You can download the guide below.
+      </p>
+      <p>
+        If your company is actively exploring Nigeria or West Africa, the next best step is a discovery call
+        so we can assess your readiness and map your next move.
+      </p>
+
+      <div class="btn-row">
+        <a href="BDC_Top_7_Mistakes_Entering_Nigeria.pdf" class="btn-primary">Download the PDF</a>
+        <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="btn-outline">Book a Discovery Call</a>
+      </div>
+
+      <p class="small-note">
+        If the guide does not download, email <a href="mailto:crissy@bdcreations.co" style="color: var(--navy); text-decoration: none;">crissy@bdcreations.co</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
