@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Presence for Medical Practices — BDC Consulting</title>
+<meta name="description" content="BDC Consulting helps independent medical, dental, and wellness practices in Conyers and Metro Atlanta build professional websites that attract new patients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1A3C5E;
+  --navy2:  #122B45;
+  --gold:   #C9A84C;
+  --gold2:  #A8872E;
+  --cream:  #FAF8F4;
+  --lgray:  #F2F4F7;
+  --mgray:  #D0DDE8;
+  --dgray:  #5A6A7A;
+  --text:   #1C2B3A;
+  --white:  #FFFFFF;
+  --red:    #C0392B;
+  --green:  #1E7B4B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mgray)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);text-decoration:none;letter-spacing:.02em}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.875rem;font-weight:400;color:var(--dgray);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:500!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--navy2)!important}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2rem 4rem}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;border:1px solid rgba(201,168,76,.15);pointer-events:none}
+.hero::after{content:'';position:absolute;top:-5%;right:-5%;width:400px;height:400px;border-radius:50%;border:1px solid rgba(201,168,76,.08);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-tag{display:inline-block;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:.35rem 1rem;border-radius:2px;margin-bottom:1.5rem}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:1.5rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy);padding:.875rem 2rem;border-radius:4px;font-weight:500;font-size:.95rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+.btn-gold:hover{background:var(--gold2)}
+.btn-outline{border:1px solid rgba(255,255,255,.4);color:var(--white);padding:.875rem 2rem;border-radius:4px;font-weight:400;font-size:.95rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:2rem}
+.hero-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-bottom:1.25rem;letter-spacing:.02em}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.metric{text-align:center;padding:1rem;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.08)}
+.metric-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);display:block;line-height:1}
+.metric-lbl{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.35rem;line-height:1.4}
+.metric-divider{height:1px;background:rgba(201,168,76,.15);margin:1.25rem 0}
+.hero-note{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6;font-style:italic}
+
+/* PROBLEM SECTION */
+.section{padding:5rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--dgray);line-height:1.8;max-width:620px}
+.bg-cream{background:var(--cream)}
+.bg-navy{background:var(--navy)}
+
+/* PROBLEM CARDS */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.problem-card{background:var(--white);border:1px solid var(--mgray);border-radius:8px;padding:1.75rem;position:relative;overflow:hidden}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.problem-icon{font-size:1.75rem;margin-bottom:1rem}
+.problem-card h3{font-size:1rem;font-weight:500;color:var(--navy);margin-bottom:.5rem}
+.problem-card p{font-size:.875rem;color:var(--dgray);line-height:1.7}
+
+/* PACKAGES */
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.package{background:var(--white);border:1px solid var(--mgray);border-radius:10px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.package:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,60,94,.12)}
+.package.featured{border-color:var(--navy);box-shadow:0 4px 24px rgba(26,60,94,.15)}
+.pkg-header{padding:1.75rem 1.75rem 1.5rem;border-bottom:1px solid var(--mgray)}
+.pkg-badge{display:inline-block;font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2px;margin-bottom:.75rem}
+.badge-pop{background:var(--navy);color:var(--white)}
+.badge-full{background:var(--gold);color:var(--navy)}
+.badge-found{background:var(--lgray);color:var(--dgray)}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
+.pkg-tagline{font-size:.85rem;color:var(--dgray);margin-bottom:1.25rem;font-style:italic}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--navy);line-height:1}
+.pkg-price span{font-family:'DM Sans',sans-serif;font-size:.875rem;color:var(--dgray);font-weight:300;margin-left:.25rem}
+.pkg-body{padding:1.5rem 1.75rem}
+.pkg-items{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.pkg-items li{font-size:.875rem;color:var(--text);line-height:1.5;display:flex;gap:.6rem;align-items:flex-start}
+.pkg-items li::before{content:'✓';color:var(--green);font-weight:500;flex-shrink:0;margin-top:.05rem}
+.pkg-items li.section-divider{font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--mgray);padding-top:.75rem;margin-top:.15rem}
+.pkg-items li.section-divider::before{content:''}
+.pkg-cta{display:block;text-align:center;padding:.875rem;border-radius:4px;font-weight:500;font-size:.9rem;text-decoration:none;transition:all .2s}
+.pkg-cta-navy{background:var(--navy);color:var(--white)}
+.pkg-cta-navy:hover{background:var(--navy2)}
+.pkg-cta-outline{border:1px solid var(--navy);color:var(--navy)}
+.pkg-cta-outline:hover{background:var(--navy);color:var(--white)}
+.pkg-cta-gold{background:var(--gold);color:var(--navy)}
+.pkg-cta-gold:hover{background:var(--gold2)}
+
+/* ADD-ONS */
+.addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2rem}
+.addon{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:1.25rem 1.5rem}
+.addon-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);font-weight:600;margin-bottom:.25rem}
+.addon-name{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.25rem}
+.addon-desc{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:1.75rem;left:10%;right:10%;height:1px;background:var(--mgray);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--navy);color:var(--white);font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.step h3{font-size:.9rem;font-weight:500;color:var(--navy);margin-bottom:.4rem}
+.step p{font-size:.8rem;color:var(--dgray);line-height:1.6}
+
+/* SOCIAL PROOF */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.proof-card{background:var(--white);border:1px solid var(--mgray);border-radius:8px;padding:1.5rem}
+.proof-stars{color:var(--gold);font-size:1rem;margin-bottom:.75rem;letter-spacing:.1em}
+.proof-text{font-size:.9rem;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:1rem}
+.proof-author{font-size:.8rem;font-weight:500;color:var(--navy)}
+.proof-role{font-size:.75rem;color:var(--dgray)}
+
+/* WHY BDC */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem}
+.why-item{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--lgray);border-radius:8px}
+.why-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
+.why-item h3{font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem}
+.why-item p{font-size:.85rem;color:var(--dgray);line-height:1.6}
+
+/* CTA SECTION */
+.cta-section{background:var(--navy);padding:5rem 2rem;text-align:center}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--white);margin-bottom:1rem}
+.cta-section p{font-size:1rem;color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 2rem;line-height:1.7}
+.cta-details{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap}
+.cta-detail{text-align:center}
+.cta-detail strong{display:block;font-size:.85rem;color:var(--white);margin-bottom:.2rem}
+.cta-detail span{font-size:.8rem;color:rgba(255,255,255,.5)}
+
+/* FOOTER */
+footer{background:var(--navy2);padding:2rem;text-align:center}
+footer p{font-size:.8rem;color:rgba(255,255,255,.4)}
+footer a{color:rgba(255,255,255,.5);text-decoration:none}
+footer a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner,.packages-grid,.proof-grid{grid-template-columns:1fr}
+  .problem-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .process-steps::before{display:none}
+  .hero h1{font-size:2.5rem}
+  .why-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .problem-grid,.why-grid{grid-template-columns:1fr}
+  nav{padding:1rem}
+  .nav-links{gap:1rem}
+  .hero{padding:6rem 1.25rem 3rem}
+  .section{padding:3.5rem 1.25rem}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-tag,.hero h1,.hero-sub,.hero-btns,.hero-card{animation:fadeUp .6s ease both}
+.hero h1{animation-delay:.1s}
+.hero-sub{animation-delay:.2s}
+.hero-btns{animation-delay:.3s}
+.hero-card{animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">BDC.</a>
+  <div class="nav-links">
+    <a href="/#divisions">Africa Advisory</a>
+    <a href="#packages">Packages</a>
+    <a href="#process">Process</a>
+    <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">Conyers & Metro Atlanta</span>
+      <h1>Your website should be<br><em>working for you</em>,<br>not against you.</h1>
+      <p class="hero-sub">Independent medical and dental practices lose new patients every day to competitors with better websites. We fix that — completely done for you, in 3–5 weeks.</p>
+      <div class="hero-btns">
+        <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="btn-gold">Book a Free 20-Min Call</a>
+        <a href="#packages" class="btn-outline">See Packages & Pricing</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">What a bad website is costing your practice</div>
+      <div class="metric-grid">
+        <div class="metric">
+          <span class="metric-num">53%</span>
+          <div class="metric-lbl">of mobile visitors leave a slow site before it loads</div>
+        </div>
+        <div class="metric">
+          <span class="metric-num">88%</span>
+          <div class="metric-lbl">of patients research a provider online before their first visit</div>
+        </div>
+        <div class="metric">
+          <span class="metric-num">3.4★</span>
+          <div class="metric-lbl">is the minimum star rating patients will consider</div>
+        </div>
+        <div class="metric">
+          <span class="metric-num">70%</span>
+          <div class="metric-lbl">of patients prefer practices that offer online booking</div>
+        </div>
+      </div>
+      <div class="metric-divider"></div>
+      <p class="hero-note">Sources: Google/SOASTA, PatientPop, Software Advice. Data reflects current patient digital behavior.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section bg-cream">
+  <div class="section-inner">
+    <div class="section-tag">The Problem</div>
+    <h2 class="section-title">Your patients are searching.<br>Your website isn't showing up.</h2>
+    <p class="section-sub">Most independent practices in the Conyers area have websites that were built 5–10 years ago — or no website at all. In 2025, that means lost patients. Every day.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📱</div>
+        <h3>Failing on mobile</h3>
+        <p>Over 70% of healthcare searches happen on a phone. If your site loads slowly or looks broken on mobile, those patients are choosing someone else within seconds.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📅</div>
+        <h3>No online booking</h3>
+        <p>Patients now expect to request appointments online — especially after hours. Without it, you're only capturing patients who are willing to call during business hours.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⭐</div>
+        <h3>Low reviews & poor reputation</h3>
+        <p>A 2.9-star rating or fewer than 20 reviews tells potential patients you're a risk. Your website needs to work alongside your reputation to build trust before they call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section" id="packages">
+  <div class="section-inner">
+    <div class="section-tag">Pricing</div>
+    <h2 class="section-title">Done-for-you digital presence packages.</h2>
+    <p class="section-sub">All packages are complete, turnkey solutions. You provide your logo and photos — we handle everything else.</p>
+
+    <div class="packages-grid">
+
+      <!-- FOUNDATION -->
+      <div class="package">
+        <div class="pkg-header">
+          <span class="pkg-badge badge-found">Foundation</span>
+          <div class="pkg-name">Foundation</div>
+          <div class="pkg-tagline">Get online. Look professional.</div>
+          <div class="pkg-price">$5,000<span>one-time</span></div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items">
+            <li>New mobile-first WordPress website</li>
+            <li>5–8 fully designed pages</li>
+            <li>Contact form + click-to-call button</li>
+            <li>HTTPS / SSL security setup</li>
+            <li>Basic local SEO configuration</li>
+            <li>Google Maps listing sync</li>
+            <li>Mobile speed optimized (target 80+)</li>
+            <li>2 rounds of revisions included</li>
+            <li>30-day post-launch support</li>
+          </ul>
+          <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="pkg-cta pkg-cta-outline">Get Started</a>
+        </div>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="package featured">
+        <div class="pkg-header">
+          <span class="pkg-badge badge-pop">Most Popular</span>
+          <div class="pkg-name">Growth</div>
+          <div class="pkg-tagline">Get found. Convert visitors into patients.</div>
+          <div class="pkg-price">$7,500<span>one-time</span></div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items">
+            <li>Everything in Foundation, plus:</li>
+            <li class="section-divider">Growth additions</li>
+            <li>Online booking / appointment integration</li>
+            <li>Google Reviews widget (live rating on site)</li>
+            <li>Patient portal + insurance info pages</li>
+            <li>Google Business Profile optimization</li>
+            <li>Local SEO keyword setup</li>
+            <li>Professional copywriting for all pages</li>
+            <li>Team/doctor bio pages</li>
+            <li>Social profile consistency audit</li>
+            <li>60-day post-launch support</li>
+          </ul>
+          <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="pkg-cta pkg-cta-navy">Book a Call</a>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="package">
+        <div class="pkg-header">
+          <span class="pkg-badge badge-full">Full Service</span>
+          <div class="pkg-name">Premium</div>
+          <div class="pkg-tagline">Dominate your local market online.</div>
+          <div class="pkg-price">$10,000<span>one-time</span></div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-items">
+            <li>Everything in Growth, plus:</li>
+            <li class="section-divider">Premium additions</li>
+            <li>Reputation recovery strategy</li>
+            <li>Review response templates</li>
+            <li>New patient email welcome sequence</li>
+            <li>Competitor website analysis (3 local)</li>
+            <li>Google Ads starter campaign setup</li>
+            <li>3-month performance reports</li>
+            <li>Strategy calls at 30 & 60 days</li>
+            <li>90-day priority support</li>
+          </ul>
+          <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="pkg-cta pkg-cta-gold">Book a Call</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="section bg-navy" style="padding-top:3rem;padding-bottom:3.5rem">
+  <div class="section-inner">
+    <div class="section-tag" style="color:rgba(201,168,76,.8)">À La Carte</div>
+    <h2 class="section-title" style="color:var(--white)">Add-on services</h2>
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="addon-price">$150–$250/mo</div>
+        <div class="addon-name">Monthly maintenance & hosting</div>
+        <div class="addon-desc">Updates, security, backups, uptime monitoring</div>
+      </div>
+      <div class="addon">
+        <div class="addon-price">$300/mo</div>
+        <div class="addon-name">Google Ads management</div>
+        <div class="addon-desc">Local search campaigns + ad spend</div>
+      </div>
+      <div class="addon">
+        <div class="addon-price">$200/page</div>
+        <div class="addon-name">Additional website pages</div>
+        <div class="addon-desc">Services pages, bios, blog posts, FAQs</div>
+      </div>
+      <div class="addon">
+        <div class="addon-price">$500</div>
+        <div class="addon-name">Logo & brand refresh</div>
+        <div class="addon-desc">New logo, color palette, and brand guide</div>
+      </div>
+      <div class="addon">
+        <div class="addon-price">$750</div>
+        <div class="addon-name">Reputation recovery campaign</div>
+        <div class="addon-desc">Review strategy + 3-month monitoring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section bg-cream" id="process">
+  <div class="section-inner">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">Simple. Transparent. Done for you.</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free 20-min call</h3>
+        <p>We review your current digital presence and identify the highest-impact fixes for your practice.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Custom proposal</h3>
+        <p>You receive a clear scope of work, timeline, and fixed price — no surprises.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>We build it</h3>
+        <p>50% deposit starts the project. You provide your logo and photos. We handle everything else.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Launch & support</h3>
+        <p>Your new site goes live. We walk you through it and remain available for post-launch questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BDC -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-tag">Why BDC Consulting</div>
+    <h2 class="section-title">Local to Conyers.<br>Built for your practice.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">📍</div>
+        <div>
+          <h3>We're right here in Conyers</h3>
+          <p>We're not a faceless agency. We're a local consultant who understands Rockdale County and the practices that serve this community.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🎯</div>
+        <div>
+          <h3>Fixed price, no surprises</h3>
+          <p>Every package is a flat fee. You know exactly what you're getting and what it costs before we start.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <div>
+          <h3>3–5 week delivery</h3>
+          <p>We move fast. Most agencies take 3–6 months. You'll have a live, patient-ready website in under a month.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🤝</div>
+        <div>
+          <h3>100+ clients managed</h3>
+          <p>BDC Consulting brings 10+ years of client management, operations, and digital strategy experience to every project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div>
+    <h2>Ready to see what's holding<br>your website back?</h2>
+    <p>Book a free 20-minute call. We'll audit your current online presence and show you exactly what needs to change — no obligation.</p>
+    <a href="https://calendly.com/crissy-bdcreations/us-africa-discovery-call" class="btn-gold" style="display:inline-block;font-size:1rem;padding:1rem 2.5rem">Book Your Free Audit Call</a>
+    <div class="cta-details">
+      <div class="cta-detail">
+        <strong>Free 20-minute call</strong>
+        <span>No pitch. Just clarity.</span>
+      </div>
+      <div class="cta-detail">
+        <strong>Same-week availability</strong>
+        <span>Mon–Fri, flexible times</span>
+      </div>
+      <div class="cta-detail">
+        <strong>Local to Conyers, GA</strong>
+        <span>Serving Metro Atlanta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 BDC Consulting · Conyers, GA · <a href="/">bdcreations.co</a> · <a href="mailto:crissy@bdcreations.co">crissy@bdcreations.co</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+</body>
+</html>
