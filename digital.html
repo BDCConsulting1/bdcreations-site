@@ -4,334 +4,514 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Presence for Medical Practices — BDC Consulting</title>
-<meta name="description" content="BDC Consulting helps independent medical, dental, and wellness practices in Conyers and Metro Atlanta build professional websites that attract new patients.">
+<meta name="description" content="BDC Consulting builds high-performance websites for independent medical, dental, and wellness practices in Conyers and Metro Atlanta. Packages from $5,000.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy:   #1A3C5E;
-  --navy2:  #122B45;
-  --gold:   #C9A84C;
-  --gold2:  #A8872E;
-  --cream:  #FAF8F4;
-  --lgray:  #F2F4F7;
-  --mgray:  #D0DDE8;
-  --dgray:  #5A6A7A;
-  --text:   #1C2B3A;
-  --white:  #FFFFFF;
-  --red:    #C0392B;
-  --green:  #1E7B4B;
+:root{
+  --ink:#0A0F1E;
+  --ink2:#141929;
+  --slate:#1E2640;
+  --teal:#00C2A8;
+  --teal2:#00A891;
+  --teal3:#00E5CC;
+  --gold:#F0B429;
+  --coral:#FF6B6B;
+  --white:#FFFFFF;
+  --off:#F7F9FC;
+  --lgray:#EEF2F7;
+  --mgray:#C8D4E0;
+  --dgray:#6B7A99;
+  --text:#1A2035;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mgray)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);text-decoration:none;letter-spacing:.02em}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.875rem;font-weight:400;color:var(--dgray);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--navy)}
-.nav-cta{background:var(--navy);color:var(--white)!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:500!important;transition:background .2s!important}
-.nav-cta:hover{background:var(--navy2)!important}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(10,15,30,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:.04em}
+.nav-logo span{color:var(--teal)}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-right a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+.nav-right a:hover{color:var(--white)}
+.nav-back{font-size:.8rem;color:rgba(255,255,255,.35);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s}
+.nav-back:hover{color:var(--teal)}
+.nav-cta-sm{background:var(--teal);color:var(--ink)!important;padding:.45rem 1.1rem;border-radius:4px;font-weight:500!important;font-size:.82rem!important;transition:background .2s!important}
+.nav-cta-sm:hover{background:var(--teal3)!important}
 
-/* HERO */
-.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2rem 4rem}
-.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;border:1px solid rgba(201,168,76,.15);pointer-events:none}
-.hero::after{content:'';position:absolute;top:-5%;right:-5%;width:400px;height:400px;border-radius:50%;border:1px solid rgba(201,168,76,.08);pointer-events:none}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-tag{display:inline-block;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:.35rem 1rem;border-radius:2px;margin-bottom:1.5rem}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:1.5rem}
-.hero h1 em{color:var(--gold);font-style:italic}
-.hero-sub{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:2rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--navy);padding:.875rem 2rem;border-radius:4px;font-weight:500;font-size:.95rem;text-decoration:none;transition:background .2s;white-space:nowrap}
-.btn-gold:hover{background:var(--gold2)}
-.btn-outline{border:1px solid rgba(255,255,255,.4);color:var(--white);padding:.875rem 2rem;border-radius:4px;font-weight:400;font-size:.95rem;text-decoration:none;transition:all .2s;white-space:nowrap}
-.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:2rem}
-.hero-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-bottom:1.25rem;letter-spacing:.02em}
-.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.metric{text-align:center;padding:1rem;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.08)}
-.metric-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);display:block;line-height:1}
-.metric-lbl{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.35rem;line-height:1.4}
-.metric-divider{height:1px;background:rgba(201,168,76,.15);margin:1.25rem 0}
-.hero-note{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6;font-style:italic}
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;padding:8rem 2.5rem 5rem}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,194,168,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,194,168,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 60% 40%,black 20%,transparent 70%)}
+.hero-glow{position:absolute;top:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,194,168,.12) 0%,transparent 60%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(240,180,41,.06) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:1160px;margin:0 auto;width:100%;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;padding:.4rem 1rem .4rem .6rem;border:1px solid rgba(0,194,168,.25);border-radius:100px}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:800;color:var(--white);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero h1 .accent{color:var(--teal);display:block}
+.hero h1 .accent2{color:var(--gold)}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:2.25rem;max-width:500px}
+.hero-btns{display:flex;gap:.875rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-teal{background:var(--teal);color:var(--ink);padding:.9rem 2rem;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.02em;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.btn-teal:hover{background:var(--teal3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,194,168,.3)}
+.btn-outline-white{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:.9rem 2rem;border-radius:6px;font-weight:400;font-size:.9rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.5);color:var(--white)}
+.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.trust-item{font-size:.78rem;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:.4rem}
+.trust-item::before{content:'✓';color:var(--teal);font-weight:600;font-size:.8rem}
 
-/* PROBLEM SECTION */
-.section{padding:5rem 2rem}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-tag{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:1rem}
-.section-sub{font-size:1rem;color:var(--dgray);line-height:1.8;max-width:620px}
-.bg-cream{background:var(--cream)}
-.bg-navy{background:var(--navy)}
+/* ── SCORE PANEL ── */
+.score-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem;position:relative;overflow:hidden}
+.score-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold),var(--coral))}
+.panel-label{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
+.panel-label span{color:var(--coral);font-size:.65rem;padding:.2rem .6rem;border:1px solid rgba(255,107,107,.3);border-radius:100px}
+.score-big{text-align:center;padding:1.5rem;background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.2);border-radius:10px;margin-bottom:1rem}
+.score-num-big{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:#FF6B6B;line-height:1}
+.score-num-label{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.4rem}
+.score-items{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem}
+.score-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem .875rem;background:rgba(255,255,255,.03);border-radius:6px;border:1px solid rgba(255,255,255,.05)}
+.score-row-label{font-size:.8rem;color:rgba(255,255,255,.5)}
+.score-row-val{font-size:.8rem;font-weight:500}
+.val-bad{color:#FF6B6B}
+.val-warn{color:var(--gold)}
+.val-good{color:var(--teal)}
+.panel-cta{display:block;text-align:center;padding:.75rem;background:rgba(0,194,168,.1);border:1px solid rgba(0,194,168,.25);border-radius:8px;font-size:.82rem;color:var(--teal);text-decoration:none;font-weight:500;transition:all .2s;letter-spacing:.02em}
+.panel-cta:hover{background:rgba(0,194,168,.15);border-color:var(--teal)}
+.panel-url{font-size:.65rem;color:rgba(255,255,255,.2);text-align:center;margin-top:.6rem}
 
-/* PROBLEM CARDS */
-.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.problem-card{background:var(--white);border:1px solid var(--mgray);border-radius:8px;padding:1.75rem;position:relative;overflow:hidden}
-.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
-.problem-icon{font-size:1.75rem;margin-bottom:1rem}
-.problem-card h3{font-size:1rem;font-weight:500;color:var(--navy);margin-bottom:.5rem}
-.problem-card p{font-size:.875rem;color:var(--dgray);line-height:1.7}
+/* ── MARQUEE ── */
+.marquee-wrap{background:var(--teal);padding:.7rem 0;overflow:hidden}
+.marquee-track{display:flex;gap:0;animation:marquee 25s linear infinite;width:max-content}
+.marquee-item{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);padding:0 2.5rem;white-space:nowrap;display:flex;align-items:center;gap:2rem}
+.marquee-item::after{content:'◆';font-size:.5rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* PACKAGES */
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.package{background:var(--white);border:1px solid var(--mgray);border-radius:10px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.package:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,60,94,.12)}
-.package.featured{border-color:var(--navy);box-shadow:0 4px 24px rgba(26,60,94,.15)}
-.pkg-header{padding:1.75rem 1.75rem 1.5rem;border-bottom:1px solid var(--mgray)}
-.pkg-badge{display:inline-block;font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2px;margin-bottom:.75rem}
-.badge-pop{background:var(--navy);color:var(--white)}
-.badge-full{background:var(--gold);color:var(--navy)}
-.badge-found{background:var(--lgray);color:var(--dgray)}
-.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
-.pkg-tagline{font-size:.85rem;color:var(--dgray);margin-bottom:1.25rem;font-style:italic}
-.pkg-price{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--navy);line-height:1}
-.pkg-price span{font-family:'DM Sans',sans-serif;font-size:.875rem;color:var(--dgray);font-weight:300;margin-left:.25rem}
-.pkg-body{padding:1.5rem 1.75rem}
-.pkg-items{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
-.pkg-items li{font-size:.875rem;color:var(--text);line-height:1.5;display:flex;gap:.6rem;align-items:flex-start}
-.pkg-items li::before{content:'✓';color:var(--green);font-weight:500;flex-shrink:0;margin-top:.05rem}
-.pkg-items li.section-divider{font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--mgray);padding-top:.75rem;margin-top:.15rem}
-.pkg-items li.section-divider::before{content:''}
-.pkg-cta{display:block;text-align:center;padding:.875rem;border-radius:4px;font-weight:500;font-size:.9rem;text-decoration:none;transition:all .2s}
-.pkg-cta-navy{background:var(--navy);color:var(--white)}
-.pkg-cta-navy:hover{background:var(--navy2)}
-.pkg-cta-outline{border:1px solid var(--navy);color:var(--navy)}
-.pkg-cta-outline:hover{background:var(--navy);color:var(--white)}
-.pkg-cta-gold{background:var(--gold);color:var(--navy)}
-.pkg-cta-gold:hover{background:var(--gold2)}
+/* ── PROBLEM ── */
+.problem-section{padding:6rem 2.5rem;background:var(--ink2)}
+.problem-inner{max-width:1160px;margin:0 auto}
+.problem-header{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4rem}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal)}
+.section-h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;letter-spacing:-.02em}
+.section-h2 em{color:var(--teal);font-style:normal}
+.problem-sub{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.85;font-weight:300}
+.problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
+.problem-card{background:var(--ink2);padding:2rem;transition:background .25s;position:relative}
+.problem-card:hover{background:rgba(255,255,255,.03)}
+.problem-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:transparent;transition:background .25s}
+.problem-card:hover::after{background:var(--coral)}
+.p-icon{font-size:1.5rem;margin-bottom:1rem;display:block}
+.p-stat{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--coral);line-height:1;margin-bottom:.4rem}
+.p-label{font-size:.78rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.875rem}
+.p-desc{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.7}
 
-/* ADD-ONS */
-.addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2rem}
-.addon{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.15);border-radius:8px;padding:1.25rem 1.5rem}
-.addon-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);font-weight:600;margin-bottom:.25rem}
-.addon-name{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:.25rem}
-.addon-desc{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6}
+/* ── BEFORE/AFTER ── */
+.ba-section{padding:6rem 2.5rem;background:var(--white)}
+.ba-inner{max-width:1160px;margin:0 auto}
+.ba-header{text-align:center;margin-bottom:3.5rem}
+.section-h2-dark{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.2;letter-spacing:-.02em;margin-bottom:.75rem}
+.section-h2-dark em{color:var(--teal2)}
+.ba-sub{font-size:.95rem;color:var(--dgray);max-width:520px;margin:0 auto;line-height:1.7}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.ba-card{border-radius:12px;overflow:hidden;border:1px solid var(--lgray)}
+.ba-card-header{padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.ba-card.before .ba-card-header{background:#FFF0F0;border-bottom:1px solid #FFD5D5}
+.ba-card.after .ba-card-header{background:#F0FBF9;border-bottom:1px solid #C0EDE6}
+.ba-label{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ba-card.before .ba-label{color:var(--coral)}
+.ba-card.after .ba-label{color:var(--teal2)}
+.ba-score-pill{font-size:.75rem;font-weight:600;padding:.3rem .8rem;border-radius:100px}
+.pill-bad{background:#FEDDDD;color:#C0392B}
+.pill-good{background:#C8F0EA;color:#0A7A63}
+.ba-body{padding:1.5rem}
+.ba-items{display:flex;flex-direction:column;gap:.7rem}
+.ba-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;line-height:1.5}
+.ba-item-icon{flex-shrink:0;margin-top:.1rem;font-size:.9rem}
+.ba-item-text{color:var(--text)}
+.ba-item-text strong{font-weight:500}
 
-/* PROCESS */
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative}
-.process-steps::before{content:'';position:absolute;top:1.75rem;left:10%;right:10%;height:1px;background:var(--mgray);z-index:0}
-.step{text-align:center;position:relative;z-index:1}
-.step-num{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--navy);color:var(--white);font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-.step h3{font-size:.9rem;font-weight:500;color:var(--navy);margin-bottom:.4rem}
-.step p{font-size:.8rem;color:var(--dgray);line-height:1.6}
+/* ── PACKAGES ── */
+.packages-section{padding:6rem 2.5rem;background:var(--off)}
+.packages-inner{max-width:1160px;margin:0 auto}
+.packages-header{text-align:center;margin-bottom:3.5rem}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.pkg{background:var(--white);border:1px solid var(--lgray);border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.pkg:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(10,15,30,.1)}
+.pkg.featured{border-color:var(--teal);box-shadow:0 4px 32px rgba(0,194,168,.15);transform:translateY(-4px)}
+.pkg-top{padding:1.75rem 1.75rem 1.5rem;position:relative}
+.pkg-badge{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;display:inline-block;margin-bottom:.875rem}
+.badge-starter{background:var(--lgray);color:var(--dgray)}
+.badge-popular{background:rgba(0,194,168,.12);color:var(--teal2)}
+.badge-premium{background:rgba(240,180,41,.12);color:#B8860B}
+.pkg-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;letter-spacing:-.01em}
+.pkg-tagline{font-size:.82rem;color:var(--dgray);font-style:italic;margin-bottom:1.25rem;line-height:1.5}
+.pkg-price-wrap{display:flex;align-items:baseline;gap:.4rem;margin-bottom:.25rem}
+.pkg-price{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.pkg-price-note{font-size:.8rem;color:var(--dgray)}
+.pkg-divider{height:1px;background:var(--lgray);margin:1.25rem 0}
+.pkg-body{padding:0 1.75rem 1.75rem;flex:1;display:flex;flex-direction:column}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;flex:1}
+.pkg-list li{font-size:.85rem;color:var(--text);line-height:1.5;display:flex;gap:.6rem;align-items:flex-start}
+.pkg-list li.check::before{content:'✓';color:var(--teal2);font-weight:600;flex-shrink:0;margin-top:.1rem;font-size:.8rem}
+.pkg-list li.plus{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border-top:1px solid var(--lgray);padding-top:.6rem;margin-top:.15rem}
+.pkg-list li.plus::before{content:''}
+.pkg-btn{display:block;text-align:center;padding:.875rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s;letter-spacing:.02em;font-family:'DM Sans',sans-serif}
+.pkg-btn-teal{background:var(--teal);color:var(--ink)}
+.pkg-btn-teal:hover{background:var(--teal3);box-shadow:0 4px 16px rgba(0,194,168,.3)}
+.pkg-btn-outline{border:1.5px solid var(--ink);color:var(--ink)}
+.pkg-btn-outline:hover{background:var(--ink);color:var(--white)}
+.pkg-btn-gold{background:var(--gold);color:var(--ink)}
+.pkg-btn-gold:hover{background:#E0A820;box-shadow:0 4px 16px rgba(240,180,41,.3)}
 
-/* SOCIAL PROOF */
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.proof-card{background:var(--white);border:1px solid var(--mgray);border-radius:8px;padding:1.5rem}
-.proof-stars{color:var(--gold);font-size:1rem;margin-bottom:.75rem;letter-spacing:.1em}
-.proof-text{font-size:.9rem;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:1rem}
-.proof-author{font-size:.8rem;font-weight:500;color:var(--navy)}
-.proof-role{font-size:.75rem;color:var(--dgray)}
+/* ── ADD-ONS ── */
+.addons-section{padding:3.5rem 2.5rem 5rem;background:var(--off)}
+.addons-inner{max-width:1160px;margin:0 auto}
+.addons-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dgray);margin-bottom:1.25rem;text-align:center}
+.addons-strip{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.addon-chip{background:var(--white);border:1px solid var(--lgray);border-radius:100px;padding:.6rem 1.25rem;display:flex;align-items:center;gap:.75rem;transition:border-color .2s,box-shadow .2s}
+.addon-chip:hover{border-color:var(--teal);box-shadow:0 2px 12px rgba(0,194,168,.1)}
+.addon-chip-price{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--teal2)}
+.addon-chip-name{font-size:.82rem;color:var(--text)}
 
-/* WHY BDC */
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem}
-.why-item{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--lgray);border-radius:8px}
-.why-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
-.why-item h3{font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem}
-.why-item p{font-size:.85rem;color:var(--dgray);line-height:1.6}
+/* ── PROCESS ── */
+.process-section{padding:6rem 2.5rem;background:var(--ink)}
+.process-inner{max-width:1160px;margin:0 auto}
+.process-header{text-align:center;margin-bottom:4rem}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:2rem;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--teal),var(--gold),transparent);z-index:0}
+.pstep{position:relative;z-index:1}
+.pstep-num{width:4rem;height:4rem;border-radius:50%;background:var(--ink2);border:1px solid rgba(0,194,168,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--teal);transition:all .3s}
+.pstep:hover .pstep-num{background:var(--teal);color:var(--ink);border-color:var(--teal);box-shadow:0 0 24px rgba(0,194,168,.4)}
+.pstep h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);text-align:center;margin-bottom:.5rem}
+.pstep p{font-size:.82rem;color:rgba(255,255,255,.4);text-align:center;line-height:1.65}
 
-/* CTA SECTION */
-.cta-section{background:var(--navy);padding:5rem 2rem;text-align:center}
-.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--white);margin-bottom:1rem}
-.cta-section p{font-size:1rem;color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 2rem;line-height:1.7}
-.cta-details{display:flex;justify-content:center;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap}
-.cta-detail{text-align:center}
-.cta-detail strong{display:block;font-size:.85rem;color:var(--white);margin-bottom:.2rem}
-.cta-detail span{font-size:.8rem;color:rgba(255,255,255,.5)}
+/* ── WHY BDC ── */
+.why-section{padding:6rem 2.5rem;background:var(--white)}
+.why-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.why-left{}
+.why-right{}
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.why-card{padding:1.25rem;border:1px solid var(--lgray);border-radius:10px;transition:border-color .2s,transform .2s}
+.why-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.why-card-icon{font-size:1.25rem;margin-bottom:.6rem}
+.why-card h3{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.why-card p{font-size:.8rem;color:var(--dgray);line-height:1.6}
+.why-statement{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-.02em;margin-bottom:1rem}
+.why-statement em{color:var(--teal2);font-style:normal}
+.why-body{font-size:.92rem;color:var(--dgray);line-height:1.85;font-weight:300;margin-bottom:1.5rem}
+.why-body strong{color:var(--text);font-weight:500}
+.why-cred{display:flex;flex-direction:column;gap:.6rem;padding:1.25rem;background:var(--off);border-radius:10px;border-left:3px solid var(--teal)}
+.why-cred-item{font-size:.83rem;color:var(--dgray);display:flex;gap:.6rem;align-items:center}
+.why-cred-item::before{content:'→';color:var(--teal);font-size:.8rem;flex-shrink:0}
 
-/* FOOTER */
-footer{background:var(--navy2);padding:2rem;text-align:center}
-footer p{font-size:.8rem;color:rgba(255,255,255,.4)}
-footer a{color:rgba(255,255,255,.5);text-decoration:none}
-footer a:hover{color:var(--gold)}
+/* ── CTA ── */
+.cta-section{background:var(--ink);padding:6rem 2.5rem;position:relative;overflow:hidden}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,194,168,.08) 0%,transparent 70%);pointer-events:none}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(0,194,168,.3);padding:.35rem 1rem;border-radius:100px;margin-bottom:1.75rem}
+.cta-h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.cta-h2 span{color:var(--teal)}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:2.5rem;font-weight:300}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.cta-details{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.cta-detail{font-size:.78rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:.35rem}
+.cta-detail::before{content:'✓';color:var(--teal);font-weight:700}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner,.packages-grid,.proof-grid{grid-template-columns:1fr}
-  .problem-grid{grid-template-columns:1fr 1fr}
-  .process-steps{grid-template-columns:1fr 1fr}
-  .process-steps::before{display:none}
-  .hero h1{font-size:2.5rem}
-  .why-grid{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-  .problem-grid,.why-grid{grid-template-columns:1fr}
-  nav{padding:1rem}
-  .nav-links{gap:1rem}
-  .hero{padding:6rem 1.25rem 3rem}
-  .section{padding:3.5rem 1.25rem}
-}
+/* ── FOOTER ── */
+footer{background:var(--ink2);padding:2.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.78rem;color:rgba(255,255,255,.25)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.78rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
 
-/* ANIMATIONS */
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── HERO ANIMATE ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-tag,.hero h1,.hero-sub,.hero-btns,.hero-card{animation:fadeUp .6s ease both}
-.hero h1{animation-delay:.1s}
-.hero-sub{animation-delay:.2s}
-.hero-btns{animation-delay:.3s}
-.hero-card{animation-delay:.4s}
+.hero-tag{animation:fadeUp .5s ease both}
+.hero h1{animation:fadeUp .6s .1s ease both}
+.hero-sub{animation:fadeUp .6s .2s ease both}
+.hero-btns{animation:fadeUp .6s .3s ease both}
+.hero-trust{animation:fadeUp .6s .4s ease both}
+.score-panel{animation:fadeUp .7s .35s ease both}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .packages-grid{grid-template-columns:1fr 1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .score-panel{display:none}
+  .why-inner{grid-template-columns:1fr}
+  .problem-header{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .hero{padding:6rem 1.25rem 4rem}
+  .problem-section,.ba-section,.packages-section,.process-section,.why-section,.cta-section{padding:4rem 1.25rem}
+  .problems-grid,.ba-grid,.packages-grid,.process-steps,.why-cards{grid-template-columns:1fr}
+  .process-steps::before{display:none}
+  .packages-section{padding-bottom:2rem}
+  .addons-section{padding:2rem 1.25rem 4rem}
+  nav{padding:0 1.25rem}
+  .nav-right a:not(.nav-cta-sm):not(.nav-back){display:none}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">BDC.</a>
-  <div class="nav-links">
-    <a href="/#divisions">Africa Advisory</a>
-    <a href="#packages">Packages</a>
-    <a href="#process">Process</a>
-    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="nav-cta">Book a Call</a>
+  <a href="/" class="nav-back">← BDC Consulting</a>
+  <div style="display:flex;align-items:center;gap:.5rem">
+    <span style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white)">BDC</span><span style="color:var(--teal);font-family:'Syne',sans-serif;font-size:1rem;font-weight:700">.</span><span style="font-size:.75rem;color:rgba(255,255,255,.35);margin-left:.35rem;letter-spacing:.04em">DIGITAL</span>
+  </div>
+  <div class="nav-right">
+    <a href="#packages">Pricing</a>
+    <a href="#process">How It Works</a>
+    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="nav-cta-sm">Free Audit Call</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
   <div class="hero-inner">
     <div>
-      <span class="hero-tag">Conyers & Metro Atlanta</span>
-      <h1>Your website should be<br><em>working for you</em>,<br>not against you.</h1>
-      <p class="hero-sub">Independent medical and dental practices lose new patients every day to competitors with better websites. We fix that — completely done for you, in 3–5 weeks.</p>
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Conyers & Metro Atlanta · Independent Practices</div>
+      <h1>Your website is <span class="accent">losing you</span> patients <span class="accent2">every day.</span></h1>
+      <p class="hero-sub">Most independent medical and dental practices in the Atlanta suburbs are invisible online — slow sites, no booking, outdated design. We fix that completely in 3–5 weeks, done for you.</p>
       <div class="hero-btns">
-        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-gold">Book a Free 20-Min Call</a>
-        <a href="#packages" class="btn-outline">See Packages & Pricing</a>
+        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-teal">Get a Free Website Audit →</a>
+        <a href="#packages" class="btn-outline-white">See Packages & Pricing</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-item">Fixed price, no surprises</span>
+        <span class="trust-item">3–5 week delivery</span>
+        <span class="trust-item">Local to Conyers, GA</span>
+        <span class="trust-item">Done for you</span>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-title">What a bad website is costing your practice</div>
-      <div class="metric-grid">
-        <div class="metric">
-          <span class="metric-num">53%</span>
-          <div class="metric-lbl">of mobile visitors leave a slow site before it loads</div>
-        </div>
-        <div class="metric">
-          <span class="metric-num">88%</span>
-          <div class="metric-lbl">of patients research a provider online before their first visit</div>
-        </div>
-        <div class="metric">
-          <span class="metric-num">3.4★</span>
-          <div class="metric-lbl">is the minimum star rating patients will consider</div>
-        </div>
-        <div class="metric">
-          <span class="metric-num">70%</span>
-          <div class="metric-lbl">of patients prefer practices that offer online booking</div>
-        </div>
+    <div class="score-panel">
+      <div class="panel-label">Live Website Audit Sample <span>Critical Issues Found</span></div>
+      <div class="score-big">
+        <div class="score-num-big">23</div>
+        <div class="score-num-label">Mobile Speed Score — Google PageSpeed (0–100)</div>
       </div>
-      <div class="metric-divider"></div>
-      <p class="hero-note">Sources: Google/SOASTA, PatientPop, Software Advice. Data reflects current patient digital behavior.</p>
+      <div class="score-items">
+        <div class="score-row"><span class="score-row-label">Mobile performance</span><span class="score-row-val val-bad">FAILING ✗</span></div>
+        <div class="score-row"><span class="score-row-label">Online booking</span><span class="score-row-val val-bad">None ✗</span></div>
+        <div class="score-row"><span class="score-row-label">HTTPS / Secure</span><span class="score-row-val val-bad">Not secure ✗</span></div>
+        <div class="score-row"><span class="score-row-label">Google star rating</span><span class="score-row-val val-warn">2.9 ★ ⚠</span></div>
+        <div class="score-row"><span class="score-row-label">Last site update</span><span class="score-row-val val-bad">2017 ✗</span></div>
+        <div class="score-row"><span class="score-row-label">After our rebuild</span><span class="score-row-val val-good">90+ ✓</span></div>
+      </div>
+      <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="panel-cta">Get your free audit — see your real score</a>
+      <div class="panel-url">pagespeed.web.dev · Results like these are common in independent practices</div>
     </div>
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Dentists</span>
+    <span class="marquee-item">Optometrists</span>
+    <span class="marquee-item">Chiropractors</span>
+    <span class="marquee-item">Dermatologists</span>
+    <span class="marquee-item">Med Spas</span>
+    <span class="marquee-item">Mental Health Practices</span>
+    <span class="marquee-item">Urgent Care Clinics</span>
+    <span class="marquee-item">Veterinarians</span>
+    <span class="marquee-item">Physical Therapy</span>
+    <span class="marquee-item">OB/GYN Practices</span>
+    <span class="marquee-item">Dentists</span>
+    <span class="marquee-item">Optometrists</span>
+    <span class="marquee-item">Chiropractors</span>
+    <span class="marquee-item">Dermatologists</span>
+    <span class="marquee-item">Med Spas</span>
+    <span class="marquee-item">Mental Health Practices</span>
+    <span class="marquee-item">Urgent Care Clinics</span>
+    <span class="marquee-item">Veterinarians</span>
+    <span class="marquee-item">Physical Therapy</span>
+    <span class="marquee-item">OB/GYN Practices</span>
+  </div>
+</div>
+
 <!-- PROBLEM -->
-<section class="section bg-cream">
-  <div class="section-inner">
-    <div class="section-tag">The Problem</div>
-    <h2 class="section-title">Your patients are searching.<br>Your website isn't showing up.</h2>
-    <p class="section-sub">Most independent practices in the Conyers area have websites that were built 5–10 years ago — or no website at all. In 2025, that means lost patients. Every day.</p>
-    <div class="problem-grid">
+<section class="problem-section">
+  <div class="problem-inner">
+    <div class="problem-header">
+      <div>
+        <div class="eyebrow">The Problem</div>
+        <h2 class="section-h2">Patients are searching.<br><em>You're not showing up.</em></h2>
+      </div>
+      <p class="problem-sub">In 2025, your website is your front door. When it's slow, broken on mobile, or doesn't exist — patients don't call. They close the tab and book with your competitor down the street. This is happening right now, every single day.</p>
+    </div>
+    <div class="problems-grid reveal">
       <div class="problem-card">
-        <div class="problem-icon">📱</div>
-        <h3>Failing on mobile</h3>
-        <p>Over 70% of healthcare searches happen on a phone. If your site loads slowly or looks broken on mobile, those patients are choosing someone else within seconds.</p>
+        <span class="p-icon">📱</span>
+        <div class="p-stat">53%</div>
+        <div class="p-label">Mobile abandonment rate</div>
+        <p class="p-desc">More than half of mobile visitors leave a site that takes longer than 3 seconds to load. Most independent practice sites score below 40 on mobile.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon">📅</div>
-        <h3>No online booking</h3>
-        <p>Patients now expect to request appointments online — especially after hours. Without it, you're only capturing patients who are willing to call during business hours.</p>
+        <span class="p-icon">🔍</span>
+        <div class="p-stat">88%</div>
+        <div class="p-label">Research online first</div>
+        <p class="p-desc">88% of patients research a provider online before their first visit. If your site doesn't build trust in 5 seconds, they're gone.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon">⭐</div>
-        <h3>Low reviews & poor reputation</h3>
-        <p>A 2.9-star rating or fewer than 20 reviews tells potential patients you're a risk. Your website needs to work alongside your reputation to build trust before they call.</p>
+        <span class="p-icon">📅</span>
+        <div class="p-stat">70%</div>
+        <div class="p-label">Prefer online booking</div>
+        <p class="p-desc">Patients now expect to book appointments online, after hours, from their phone. Without it, you're only reaching patients willing to call during business hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-section" id="results">
+  <div class="ba-inner">
+    <div class="ba-header">
+      <div class="eyebrow" style="justify-content:center;color:var(--teal2)">The Transformation</div>
+      <h2 class="section-h2-dark">What we <em>actually change</em></h2>
+      <p class="ba-sub">This is the difference between a practice that struggles to get new patients online and one that converts visitors into booked appointments automatically.</p>
+    </div>
+    <div class="ba-grid reveal">
+      <div class="ba-card before">
+        <div class="ba-card-header">
+          <span class="ba-label">Before BDC</span>
+          <span class="ba-score-pill pill-bad">Score: 23 / 100</span>
+        </div>
+        <div class="ba-body">
+          <div class="ba-items">
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">Site loads in 8+ seconds on mobile — most visitors leave immediately</div></div>
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">No online booking — patients can only call during office hours</div></div>
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">No HTTPS — browser shows "Not Secure" before patients read a word</div></div>
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">Design from 2017 — communicates outdated care before you say anything</div></div>
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">Not ranking in Google for "[specialty] near me" searches</div></div>
+            <div class="ba-item"><span class="ba-item-icon">❌</span><div class="ba-item-text">2.9 stars with no strategy to improve — patients choose competitors</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-card-header">
+          <span class="ba-label">After BDC</span>
+          <span class="ba-score-pill pill-good">Score: 94 / 100</span>
+        </div>
+        <div class="ba-body">
+          <div class="ba-items">
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">Sub-2 second load time on mobile — patients stay and engage</div></div>
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">24/7 online booking — patients book appointments while you sleep</div></div>
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">HTTPS secured — site passes the trust test before they read a word</div></div>
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">Modern, professional design — communicates quality care instantly</div></div>
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">Local SEO configured — shows up when patients search nearby</div></div>
+            <div class="ba-item"><span class="ba-item-icon">✅</span><div class="ba-item-text">Reputation strategy included — framework to grow your review count</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PACKAGES -->
-<section class="section" id="packages">
-  <div class="section-inner">
-    <div class="section-tag">Pricing</div>
-    <h2 class="section-title">Done-for-you digital presence packages.</h2>
-    <p class="section-sub">All packages are complete, turnkey solutions. You provide your logo and photos — we handle everything else.</p>
+<section class="packages-section" id="packages">
+  <div class="packages-inner">
+    <div class="packages-header">
+      <div class="eyebrow" style="justify-content:center;color:var(--teal2)">Pricing</div>
+      <h2 class="section-h2-dark">Done-for-you packages.<br><em>No hidden fees.</em></h2>
+      <p class="ba-sub" style="margin-top:.75rem">Everything is a flat fee. You know the full cost before we start. 50% deposit to begin, 50% on launch.</p>
+    </div>
+    <div class="packages-grid reveal">
 
-    <div class="packages-grid">
-
-      <!-- FOUNDATION -->
-      <div class="package">
-        <div class="pkg-header">
-          <span class="pkg-badge badge-found">Foundation</span>
+      <div class="pkg">
+        <div class="pkg-top">
+          <span class="pkg-badge badge-starter">Foundation</span>
           <div class="pkg-name">Foundation</div>
-          <div class="pkg-tagline">Get online. Look professional.</div>
-          <div class="pkg-price">$5,000<span>one-time</span></div>
+          <div class="pkg-tagline">Get online and look professional fast.</div>
+          <div class="pkg-price-wrap">
+            <span class="pkg-price">$5,000</span>
+            <span class="pkg-price-note">one-time</span>
+          </div>
+          <div class="pkg-divider"></div>
         </div>
         <div class="pkg-body">
-          <ul class="pkg-items">
-            <li>New mobile-first WordPress website</li>
-            <li>5–8 fully designed pages</li>
-            <li>Contact form + click-to-call button</li>
-            <li>HTTPS / SSL security setup</li>
-            <li>Basic local SEO configuration</li>
-            <li>Google Maps listing sync</li>
-            <li>Mobile speed optimized (target 80+)</li>
-            <li>2 rounds of revisions included</li>
-            <li>30-day post-launch support</li>
+          <ul class="pkg-list">
+            <li class="check">New mobile-first WordPress website</li>
+            <li class="check">5–8 fully designed pages</li>
+            <li class="check">Contact form + click-to-call</li>
+            <li class="check">HTTPS / SSL setup</li>
+            <li class="check">Basic local SEO configuration</li>
+            <li class="check">Google Maps embed</li>
+            <li class="check">Target 80+ mobile speed score</li>
+            <li class="check">2 rounds of revisions</li>
+            <li class="check">30-day post-launch support</li>
           </ul>
-          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-cta pkg-cta-outline">Get Started</a>
+          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-btn pkg-btn-outline">Get Started</a>
         </div>
       </div>
 
-      <!-- GROWTH -->
-      <div class="package featured">
-        <div class="pkg-header">
-          <span class="pkg-badge badge-pop">Most Popular</span>
+      <div class="pkg featured">
+        <div class="pkg-top">
+          <span class="pkg-badge badge-popular">Most Popular</span>
           <div class="pkg-name">Growth</div>
-          <div class="pkg-tagline">Get found. Convert visitors into patients.</div>
-          <div class="pkg-price">$7,500<span>one-time</span></div>
+          <div class="pkg-tagline">Convert visitors into booked patients.</div>
+          <div class="pkg-price-wrap">
+            <span class="pkg-price">$7,500</span>
+            <span class="pkg-price-note">one-time</span>
+          </div>
+          <div class="pkg-divider"></div>
         </div>
         <div class="pkg-body">
-          <ul class="pkg-items">
-            <li>Everything in Foundation, plus:</li>
-            <li class="section-divider">Growth additions</li>
-            <li>Online booking / appointment integration</li>
-            <li>Google Reviews widget (live rating on site)</li>
-            <li>Patient portal + insurance info pages</li>
-            <li>Google Business Profile optimization</li>
-            <li>Local SEO keyword setup</li>
-            <li>Professional copywriting for all pages</li>
-            <li>Team/doctor bio pages</li>
-            <li>Social profile consistency audit</li>
-            <li>60-day post-launch support</li>
+          <ul class="pkg-list">
+            <li class="check">Everything in Foundation, plus:</li>
+            <li class="plus">Growth additions</li>
+            <li class="check">Online booking integration</li>
+            <li class="check">Google Reviews live widget</li>
+            <li class="check">Patient portal + insurance pages</li>
+            <li class="check">Google Business Profile optimization</li>
+            <li class="check">Local SEO keyword setup</li>
+            <li class="check">Professional copywriting</li>
+            <li class="check">Team bio pages</li>
+            <li class="check">60-day post-launch support</li>
           </ul>
-          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-cta pkg-cta-navy">Book a Call</a>
+          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-btn pkg-btn-teal">Book a Call</a>
         </div>
       </div>
 
-      <!-- PREMIUM -->
-      <div class="package">
-        <div class="pkg-header">
-          <span class="pkg-badge badge-full">Full Service</span>
+      <div class="pkg">
+        <div class="pkg-top">
+          <span class="pkg-badge badge-premium">Full Service</span>
           <div class="pkg-name">Premium</div>
           <div class="pkg-tagline">Dominate your local market online.</div>
-          <div class="pkg-price">$10,000<span>one-time</span></div>
+          <div class="pkg-price-wrap">
+            <span class="pkg-price">$10,000</span>
+            <span class="pkg-price-note">one-time</span>
+          </div>
+          <div class="pkg-divider"></div>
         </div>
         <div class="pkg-body">
-          <ul class="pkg-items">
-            <li>Everything in Growth, plus:</li>
-            <li class="section-divider">Premium additions</li>
-            <li>Reputation recovery strategy</li>
-            <li>Review response templates</li>
-            <li>New patient email welcome sequence</li>
-            <li>Competitor website analysis (3 local)</li>
-            <li>Google Ads starter campaign setup</li>
-            <li>3-month performance reports</li>
-            <li>Strategy calls at 30 & 60 days</li>
-            <li>90-day priority support</li>
+          <ul class="pkg-list">
+            <li class="check">Everything in Growth, plus:</li>
+            <li class="plus">Premium additions</li>
+            <li class="check">Reputation recovery strategy</li>
+            <li class="check">Review response templates</li>
+            <li class="check">New patient email sequence</li>
+            <li class="check">Competitor analysis (3 local)</li>
+            <li class="check">Google Ads starter setup</li>
+            <li class="check">3-month performance reports</li>
+            <li class="check">90-day priority support</li>
           </ul>
-          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-cta pkg-cta-gold">Book a Call</a>
+          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="pkg-btn pkg-btn-gold">Book a Call</a>
         </div>
       </div>
 
@@ -340,102 +520,86 @@ footer a:hover{color:var(--gold)}
 </section>
 
 <!-- ADD-ONS -->
-<section class="section bg-navy" style="padding-top:3rem;padding-bottom:3.5rem">
-  <div class="section-inner">
-    <div class="section-tag" style="color:rgba(201,168,76,.8)">À La Carte</div>
-    <h2 class="section-title" style="color:var(--white)">Add-on services</h2>
-    <div class="addons-grid">
-      <div class="addon">
-        <div class="addon-price">$150–$250/mo</div>
-        <div class="addon-name">Monthly maintenance & hosting</div>
-        <div class="addon-desc">Updates, security, backups, uptime monitoring</div>
-      </div>
-      <div class="addon">
-        <div class="addon-price">$300/mo</div>
-        <div class="addon-name">Google Ads management</div>
-        <div class="addon-desc">Local search campaigns + ad spend</div>
-      </div>
-      <div class="addon">
-        <div class="addon-price">$200/page</div>
-        <div class="addon-name">Additional website pages</div>
-        <div class="addon-desc">Services pages, bios, blog posts, FAQs</div>
-      </div>
-      <div class="addon">
-        <div class="addon-price">$500</div>
-        <div class="addon-name">Logo & brand refresh</div>
-        <div class="addon-desc">New logo, color palette, and brand guide</div>
-      </div>
-      <div class="addon">
-        <div class="addon-price">$750</div>
-        <div class="addon-name">Reputation recovery campaign</div>
-        <div class="addon-desc">Review strategy + 3-month monitoring</div>
-      </div>
+<section class="addons-section">
+  <div class="addons-inner">
+    <div class="addons-label">À La Carte Add-Ons</div>
+    <div class="addons-strip">
+      <div class="addon-chip"><span class="addon-chip-price">$150–$250/mo</span><span class="addon-chip-name">Monthly maintenance & hosting</span></div>
+      <div class="addon-chip"><span class="addon-chip-price">$300/mo</span><span class="addon-chip-name">Google Ads management</span></div>
+      <div class="addon-chip"><span class="addon-chip-price">$200/page</span><span class="addon-chip-name">Additional pages</span></div>
+      <div class="addon-chip"><span class="addon-chip-price">$500</span><span class="addon-chip-name">Logo & brand refresh</span></div>
+      <div class="addon-chip"><span class="addon-chip-price">$750</span><span class="addon-chip-name">Reputation recovery campaign</span></div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="section bg-cream" id="process">
-  <div class="section-inner">
-    <div class="section-tag">How It Works</div>
-    <h2 class="section-title">Simple. Transparent. Done for you.</h2>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Free 20-min call</h3>
-        <p>We review your current digital presence and identify the highest-impact fixes for your practice.</p>
+<section class="process-section" id="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="eyebrow" style="justify-content:center">How It Works</div>
+      <h2 class="section-h2" style="text-align:center">From audit to live site<br><em style="color:var(--teal)">in four steps.</em></h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="pstep">
+        <div class="pstep-num">01</div>
+        <h3>Free audit call</h3>
+        <p>20 minutes. We review your current site, identify the gaps, and show you exactly what's costing you patients.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
+      <div class="pstep">
+        <div class="pstep-num">02</div>
         <h3>Custom proposal</h3>
-        <p>You receive a clear scope of work, timeline, and fixed price — no surprises.</p>
+        <p>You get a clear scope, fixed price, and timeline within 48 hours. No vague estimates.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
+      <div class="pstep">
+        <div class="pstep-num">03</div>
         <h3>We build it</h3>
-        <p>50% deposit starts the project. You provide your logo and photos. We handle everything else.</p>
+        <p>50% deposit starts the project. You provide logo and photos. We handle every other detail.</p>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
+      <div class="pstep">
+        <div class="pstep-num">04</div>
         <h3>Launch & support</h3>
-        <p>Your new site goes live. We walk you through it and remain available for post-launch questions.</p>
+        <p>Your new site goes live. We walk you through it and stay available through your support window.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- WHY BDC -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-tag">Why BDC Consulting</div>
-    <h2 class="section-title">Local to Conyers.<br>Built for your practice.</h2>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-icon">📍</div>
-        <div>
-          <h3>We're right here in Conyers</h3>
-          <p>We're not a faceless agency. We're a local consultant who understands Rockdale County and the practices that serve this community.</p>
-        </div>
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-left">
+      <div class="eyebrow">Why BDC Consulting</div>
+      <div class="why-statement">We're not an agency.<br>We're your <em>local digital partner.</em></div>
+      <p class="why-body">Most web agencies are faceless operations who've never set foot in Conyers. We're a local business consultant based right here in the Atlanta suburbs — we know this market, we know these patients, and we know what independent practices need to compete online in 2025.</p>
+      <div class="why-cred">
+        <div class="why-cred-item">10+ years of client management across 100+ enterprise & SMB accounts</div>
+        <div class="why-cred-item">Microsoft Azure AI certified · Master's in IT & Security</div>
+        <div class="why-cred-item">Proficient in Salesforce, HubSpot, Zoho, Zendesk & Intercom</div>
+        <div class="why-cred-item">90%+ client retention rate across all engagements</div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">🎯</div>
-        <div>
-          <h3>Fixed price, no surprises</h3>
-          <p>Every package is a flat fee. You know exactly what you're getting and what it costs before we start.</p>
+    </div>
+    <div class="why-right">
+      <div class="why-cards reveal">
+        <div class="why-card">
+          <div class="why-card-icon">📍</div>
+          <h3>Local to Conyers</h3>
+          <p>Not a distant agency. A neighbor who understands Rockdale County and the practices that serve this community.</p>
         </div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">⚡</div>
-        <div>
+        <div class="why-card">
+          <div class="why-card-icon">💰</div>
+          <h3>Fixed price always</h3>
+          <p>Every package is a flat fee. You know the full cost before we start — no hourly billing surprises.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">⚡</div>
           <h3>3–5 week delivery</h3>
-          <p>We move fast. Most agencies take 3–6 months. You'll have a live, patient-ready website in under a month.</p>
+          <p>Most agencies take months. You'll have a live, patient-ready website in under 5 weeks.</p>
         </div>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">🤝</div>
-        <div>
-          <h3>100+ clients managed</h3>
-          <p>BDC Consulting brings 10+ years of client management, operations, and digital strategy experience to every project.</p>
+        <div class="why-card">
+          <div class="why-card-icon">🎯</div>
+          <h3>Built to convert</h3>
+          <p>Every design decision is driven by one goal — turning website visitors into booked appointments.</p>
         </div>
       </div>
     </div>
@@ -444,30 +608,39 @@ footer a:hover{color:var(--gold)}
 
 <!-- CTA -->
 <section class="cta-section">
-  <div>
-    <h2>Ready to see what's holding<br>your website back?</h2>
-    <p>Book a free 20-minute call. We'll audit your current online presence and show you exactly what needs to change — no obligation.</p>
-    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-gold" style="display:inline-block;font-size:1rem;padding:1rem 2.5rem">Book Your Free Audit Call</a>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <span class="cta-tag">Free · No Obligation · Same-Week Availability</span>
+    <h2 class="cta-h2">See exactly what your website<br>is <span>costing you.</span></h2>
+    <p class="cta-sub">Book a free 20-minute audit call. We'll pull your live PageSpeed score, walk through what we find, and show you what a fix looks like — no pitch, just clarity.</p>
+    <div class="cta-btns">
+      <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-teal" style="font-size:1rem;padding:1rem 2.5rem">Book Your Free Audit Call →</a>
+    </div>
     <div class="cta-details">
-      <div class="cta-detail">
-        <strong>Free 20-minute call</strong>
-        <span>No pitch. Just clarity.</span>
-      </div>
-      <div class="cta-detail">
-        <strong>Same-week availability</strong>
-        <span>Mon–Fri, flexible times</span>
-      </div>
-      <div class="cta-detail">
-        <strong>Local to Conyers, GA</strong>
-        <span>Serving Metro Atlanta</span>
-      </div>
+      <span class="cta-detail">Free 20-minute call</span>
+      <span class="cta-detail">No sales pressure</span>
+      <span class="cta-detail">Local to Conyers, GA</span>
+      <span class="cta-detail">Serving Metro Atlanta</span>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 BDC Consulting · Conyers, GA · <a href="/">bdcreations.co</a> · <a href="mailto:crissy@bdcreations.co">crissy@bdcreations.co</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+  <div class="footer-inner">
+    <p>© 2026 BDC Consulting · Conyers, GA · <a href="mailto:crissy@bdcreations.co" style="color:rgba(255,255,255,.4);text-decoration:none">crissy@bdcreations.co</a></p>
+    <div class="footer-links">
+      <a href="/">BDC Consulting Home</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
 </footer>
 
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold: .12})
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+</script>
 </body>
 </html>
