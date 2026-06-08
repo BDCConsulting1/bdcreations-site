@@ -1,1033 +1,703 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BDC Consulting — U.S.–Africa Advisory & Funding Strategy</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink: #0D1117;
-      --cream: #FAF8F4;
-      --gold: #C8A24E;
-      --gold-light: #E8D5A0;
-      --navy: #1B2A4A;
-      --navy-light: #2A3F6A;
-      --sage: #6B8F71;
-      --warm-gray: #9A958E;
-      --off-white: #F2EFE9;
-      --border: rgba(13,17,23,0.08);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.25rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(250,248,244,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.4s ease;
-    }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
-
-    .nav-cta {
-      background: var(--ink) !important;
-      color: var(--cream) !important;
-      padding: 0.6rem 1.5rem !important;
-      border-radius: 2px;
-      transition: background 0.3s !important;
-    }
-
-    .nav-cta:hover { background: var(--navy) !important; }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8rem 3rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(200,162,78,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -10%;
-      left: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(27,42,74,0.05) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      max-width: 800px;
-      color: var(--ink);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.4s forwards;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--navy);
-    }
-
-    .hero-sub {
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.7;
-      max-width: 600px;
-      margin-top: 2rem;
-      color: var(--warm-gray);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.8s forwards;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 1rem 2.25rem;
-      background: var(--ink);
-      color: var(--cream);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    .btn-primary:hover {
-      background: var(--navy);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      display: inline-block;
-      padding: 1rem 2.25rem;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    .btn-outline:hover {
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    .hero-proof {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1s forwards;
-      flex-wrap: wrap;
-    }
-
-    .proof-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .proof-label {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      margin-top: 0.35rem;
-    }
-
-    .divisions {
-      padding: 6rem 3rem;
-    }
-
-    .divisions-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .divisions-header .eyebrow,
-    .clients .eyebrow,
-    .why-left .eyebrow,
-    .funding-eyebrow,
-    .lead-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .divisions-header h2,
-    .clients h2,
-    .why-left h2,
-    .funding-heading,
-    .lead-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      letter-spacing: -0.02em;
-      color: var(--ink);
-    }
-
-    .divisions-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .division-card {
-      padding: 3rem;
-      border-radius: 3px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s ease;
-    }
-
-    .division-card:hover { transform: translateY(-4px); }
-
-    .division-card.card-navy {
-      background: var(--navy);
-      color: var(--cream);
-    }
-
-    .division-card.card-navy::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(200,162,78,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .division-card.card-light {
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      color: var(--ink);
-    }
-
-    .division-card.card-light::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(107,143,113,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .division-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 0.9rem;
-      opacity: 0.4;
-      margin-bottom: 1.5rem;
-    }
-
-    .division-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.7rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .division-desc {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .card-navy .division-desc { color: rgba(250,248,244,0.7); }
-    .card-light .division-desc { color: var(--warm-gray); }
-
-    .service-list {
-      list-style: none;
-      margin-bottom: 2.5rem;
-    }
-
-    .service-list li {
-      font-size: 0.88rem;
-      font-weight: 400;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-    }
-
-    .card-light .service-list li { border-bottom-color: var(--border); }
-
-    .service-list li::before {
-      content: '→';
-      font-size: 0.8rem;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .division-cta {
-      display: inline-block;
-      padding: 0.85rem 1.75rem;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    .card-navy .division-cta {
-      background: var(--gold);
-      color: var(--ink);
-    }
-
-    .card-navy .division-cta:hover { background: var(--gold-light); }
-
-    .card-light .division-cta {
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    .card-light .division-cta:hover { background: var(--navy); }
-
-    .clients {
-      padding: 6rem 3rem;
-      background: var(--off-white);
-    }
-
-    .clients-inner,
-    .funding-inner,
-    .why-inner,
-    .lead-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .clients h2 {
-      margin-bottom: 3rem;
-    }
-
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .client-type,
-    .funding-card,
-    .lead-form-card {
-      padding: 2rem;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      transition: all 0.3s;
-    }
-
-    .client-type:hover,
-    .funding-card:hover,
-    .lead-form-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-    }
-
-    .client-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--navy);
-      color: var(--gold);
-      border-radius: 2px;
-      font-weight: 600;
-    }
-
-    .client-type h3,
-    .funding-card h3,
-    .lead-form-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .client-type p,
-    .funding-card p,
-    .funding-intro,
-    .lead-copy p,
-    .lead-copy li,
-    .lead-form-card p {
-      font-size: 0.88rem;
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--warm-gray);
-    }
-
-    .funding-services {
-      padding: 6rem 3rem;
-    }
-
-    .funding-top {
-      max-width: 800px;
-      margin-bottom: 2.5rem;
-    }
-
-    .funding-intro {
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .funding-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .funding-cta {
-      margin-top: 2rem;
-    }
-
-    .lead-magnet {
-      padding: 6rem 3rem;
-      background: var(--off-white);
-    }
-
-    .lead-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .lead-heading {
-      margin-bottom: 1rem;
-    }
-
-    .lead-copy p {
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .lead-list {
-      padding-left: 1.25rem;
-      margin-top: 1rem;
-    }
-
-    .lead-list li {
-      margin-bottom: 0.65rem;
-    }
-
-    .lead-form-card h3 {
-      margin-bottom: 1rem;
-    }
-
-    .lead-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .lead-form input {
-      width: 100%;
-      padding: 0.95rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      background: #fff;
-      color: var(--ink);
-    }
-
-    .lead-form input:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
-
-    .lead-note {
-      font-size: 0.78rem !important;
-      line-height: 1.5 !important;
-      margin-top: 0.35rem;
-    }
-
-    .why {
-      padding: 6rem 3rem;
-    }
-
-    .why-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .why-left p {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--warm-gray);
-    }
-
-    .why-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .why-item {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      padding: 1.5rem;
-      background: var(--off-white);
-      border-radius: 3px;
-      border-left: 3px solid var(--gold);
-    }
-
-    .why-item-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      color: var(--navy);
-      flex-shrink: 0;
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .why-item h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .why-item p {
-      font-size: 0.85rem;
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--warm-gray);
-    }
-
-    .cta-banner {
-      margin: 3rem;
-      padding: 5rem 4rem;
-      background: var(--navy);
-      border-radius: 3px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-banner::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(200,162,78,0.1) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .cta-banner h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--cream);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    .cta-banner p {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(250,248,244,0.6);
-      max-width: 500px;
-      margin: 0 auto 2rem;
-      position: relative;
-    }
-
-    .cta-banner .btn-primary {
-      background: var(--gold);
-      color: var(--ink);
-      position: relative;
-    }
-
-    .cta-banner .btn-primary:hover {
-      background: var(--gold-light);
-    }
-
-    footer {
-      padding: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border);
-      gap: 1rem;
-    }
-
-    .footer-left {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-    }
-
-    .footer-left span { color: var(--gold); }
-
-    .footer-right {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .footer-right a,
-    .footer-copy a {
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--warm-gray);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-right a:hover,
-    .footer-copy a:hover { color: var(--ink); }
-
-    .footer-copy {
-      text-align: center;
-      padding: 1.5rem 3rem;
-      font-size: 0.75rem;
-      color: var(--warm-gray);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-      .divisions,
-      .clients,
-      .funding-services,
-      .lead-magnet,
-      .why { padding: 4rem 1.5rem; }
-      .divisions-grid,
-      .clients-grid,
-      .why-inner,
-      .lead-inner { grid-template-columns: 1fr; }
-      .cta-banner { margin: 1.5rem; padding: 3rem 2rem; }
-      footer { flex-direction: column; text-align: center; }
-      .footer-right { justify-content: center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDC Consulting — U.S.–Africa Advisory, Funding Strategy & Digital Presence</title>
+<meta name="description" content="BDC Consulting delivers on-the-ground Africa market entry advisory, funding strategy, and digital presence solutions — from Lagos to Atlanta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#18120C;--ink2:#221A10;--ink3:#2C2218;
+  --cream:#F5EFE3;--cream2:#EDE4D4;--cream3:#DDD4C0;
+  --gold:#C9A84C;--gold2:#A8872E;--gold3:#E8C96A;
+  --terra:#B85438;--terra2:#8A3A24;--terra3:#D4734E;
+  --white:#FFFFFF;
+  --text:#1E1710;--text2:#3A2E22;
+  --muted:#7A6E62;--muted2:#A09488;
+  --border:#E0D4C4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(24,18,12,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,.12);transition:all .3s}
+.nav-logo{text-decoration:none;display:flex;align-items:baseline;gap:.3rem;line-height:1}
+.logo-bdc{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:.03em}
+.logo-consulting{font-size:.65rem;font-weight:400;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-family:'DM Sans',sans-serif}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.82rem;font-weight:400;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.02em;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold)}
+.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.1)}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:.5rem 1.25rem;border-radius:3px;font-weight:500!important;letter-spacing:.03em!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--gold3)!important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s}
+.mob-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--ink);border-bottom:1px solid rgba(201,168,76,.15);padding:1.5rem 2rem;flex-direction:column;gap:1rem;z-index:199}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:.95rem;color:rgba(255,255,255,.6);text-decoration:none;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}
+.mob-menu a:hover{color:var(--gold)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;padding:9rem 3rem 6rem}
+.hero-texture{position:absolute;inset:0;opacity:.025;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:24px 24px}
+.hero-warm-glow{position:absolute;bottom:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(184,84,56,.07) 0%,transparent 60%);pointer-events:none}
+.hero-gold-glow{position:absolute;top:20%;left:40%;width:500px;height:400px;background:radial-gradient(ellipse,rgba(201,168,76,.04) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:6rem;align-items:center}
+.hero-location{display:inline-flex;align-items:center;gap:.75rem;margin-bottom:2rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);font-family:'DM Sans',sans-serif}
+.hero-location-dot{width:5px;height:5px;border-radius:50%;background:var(--terra3);flex-shrink:0}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:400;color:var(--white);line-height:1.08;letter-spacing:-.02em;margin-bottom:2rem}
+.hero h1 em{font-style:italic;color:var(--gold3);display:block}
+.hero-rule{width:48px;height:1px;background:var(--terra);margin-bottom:1.75rem}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:2.5rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-gold{background:var(--gold);color:var(--ink);padding:.9rem 2.25rem;border-radius:3px;font-weight:500;font-size:.9rem;text-decoration:none;letter-spacing:.03em;transition:all .25s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.btn-gold:hover{background:var(--gold3);transform:translateY(-1px)}
+.btn-cream-outline{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:.9rem 2.25rem;border-radius:3px;font-weight:300;font-size:.9rem;text-decoration:none;transition:all .25s;white-space:nowrap}
+.btn-cream-outline:hover{border-color:rgba(255,255,255,.45);color:var(--white)}
+.hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+.stat-item{padding:1.25rem 2rem 0 0;margin-right:2rem;border-right:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold3);display:block;line-height:1}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.06em;margin-top:.35rem;text-transform:uppercase}
+.hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);border-radius:4px;padding:2.5rem;position:relative}
+.hero-card::before{content:'';position:absolute;top:0;left:2rem;right:2rem;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hcard-label{font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem}
+.hcard-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.2)}
+.practice-links{display:flex;flex-direction:column;gap:0}
+.plink{display:flex;align-items:flex-start;gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:all .2s;cursor:pointer}
+.plink:last-child{border-bottom:none;padding-bottom:0}
+.plink:hover{padding-left:.5rem}
+.plink-num{font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(201,168,76,.5);flex-shrink:0;margin-top:.15rem}
+.plink-info{}
+.plink-name{font-size:.92rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.2rem;transition:color .2s}
+.plink:hover .plink-name{color:var(--gold3)}
+.plink-desc{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.5}
+.plink-arrow{margin-left:auto;color:var(--gold);opacity:0;transition:opacity .2s;font-size:.9rem;flex-shrink:0;margin-top:.15rem}
+.plink:hover .plink-arrow{opacity:1}
+
+/* ── TICKER ── */
+.ticker-wrap{padding:.8rem 0;overflow:hidden;background:var(--terra);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.ticker-track{display:flex;gap:0;animation:ticker 30s linear infinite;width:max-content}
+.ticker-item{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 2.5rem;white-space:nowrap;display:flex;align-items:center;gap:2rem}
+.ticker-item::after{content:'·';opacity:.5;font-size:.6rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED SECTION STYLES ── */
+.section{padding:6.5rem 3rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:.875rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--terra)}
+.eyebrow-gold{color:var(--gold)}
+.eyebrow-gold::before{background:var(--gold)}
+.eyebrow-cream{color:rgba(201,168,76,.7)}
+.eyebrow-cream::before{background:rgba(201,168,76,.7)}
+.s-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:400;line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem}
+.s-h2 em{font-style:italic}
+.s-h2-light{color:var(--white)}
+.s-h2-dark{color:var(--ink)}
+.s-sub{font-size:.95rem;color:var(--muted);line-height:1.9;font-weight:300;max-width:580px}
+.s-sub-light{color:rgba(255,255,255,.45)}
+.bg-cream{background:var(--cream)}
+.bg-cream2{background:var(--cream2)}
+.bg-ink{background:var(--ink)}
+.bg-ink2{background:var(--ink2)}
+.bg-terra{background:var(--terra)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ── PRACTICES ── */
+.practices-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:3.5rem}
+.practices-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.5rem}
+.practice{background:var(--white);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.practice:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(24,18,12,.1)}
+.practice-featured{border-color:var(--gold2);box-shadow:0 4px 28px rgba(201,168,76,.1)}
+.practice-top{padding:2rem 2rem 1.75rem;border-bottom:1px solid var(--border)}
+.practice-num{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:400;color:var(--muted2);margin-bottom:.875rem}
+.practice-icon{font-size:1.5rem;margin-bottom:.875rem;display:block}
+.practice-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:.5rem;letter-spacing:-.01em}
+.practice-tag{font-size:.78rem;color:var(--muted);font-style:italic;line-height:1.5}
+.practice-body{padding:1.75rem 2rem 2rem;flex:1;display:flex;flex-direction:column}
+.practice-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.75rem;flex:1}
+.practice-list li{font-size:.83rem;color:var(--text2);line-height:1.55;display:flex;gap:.6rem;align-items:flex-start}
+.practice-list li::before{content:'–';color:var(--terra);flex-shrink:0;font-size:.9rem}
+.practice-cta{display:block;text-align:center;padding:.8rem;border-radius:3px;font-size:.83rem;font-weight:500;text-decoration:none;transition:all .2s;letter-spacing:.03em;font-family:'DM Sans',sans-serif}
+.cta-gold{background:var(--gold);color:var(--ink)}
+.cta-gold:hover{background:var(--gold3)}
+.cta-terra{background:var(--terra);color:var(--white)}
+.cta-terra:hover{background:var(--terra2)}
+.cta-outline-ink{border:1px solid var(--ink);color:var(--ink)}
+.cta-outline-ink:hover{background:var(--ink);color:var(--white)}
+.practice-new{display:inline-block;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:var(--white);padding:2px 7px;border-radius:2px;margin-left:.5rem;vertical-align:middle}
+
+/* ── CRYSTAL STORY ── */
+.story-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.story-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:400;color:var(--white);line-height:1.35;letter-spacing:-.02em}
+.story-quote em{font-style:italic;color:var(--gold3)}
+.story-rule{width:40px;height:1px;background:var(--terra3);margin:2rem 0}
+.story-name{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+.story-body{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.95;margin-bottom:2rem}
+.story-creds{display:flex;flex-direction:column;gap:.65rem;padding:1.5rem;border:1px solid rgba(201,168,76,.15);border-radius:4px;border-left:2px solid var(--gold)}
+.cred-item{font-size:.82rem;color:rgba(255,255,255,.45);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
+.cred-item::before{content:'→';color:var(--gold);flex-shrink:0;font-size:.75rem;margin-top:.2rem}
+.photo-placeholder{width:100%;aspect-ratio:3/4;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:rgba(255,255,255,.15);letter-spacing:.08em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:1.5rem}
+
+/* ── WHO WE HELP ── */
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--cream3);border:1px solid var(--cream3);border-radius:4px;overflow:hidden;margin-top:3rem}
+.help-card{background:var(--white);padding:1.75rem;transition:background .2s}
+.help-card:hover{background:var(--cream)}
+.help-num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:400;color:var(--cream3);margin-bottom:.75rem;line-height:1}
+.help-card h3{font-size:.92rem;font-weight:500;color:var(--ink);margin-bottom:.45rem;line-height:1.4}
+.help-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+/* ── FUNDING ── */
+.funding-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:3rem}
+.funding-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.funding-card{background:var(--ink2);padding:2rem;transition:background .2s;position:relative}
+.funding-card:hover{background:rgba(255,255,255,.03)}
+.funding-card::after{content:'';position:absolute;top:0;left:2rem;width:0;height:1px;background:var(--gold);transition:width .35s ease}
+.funding-card:hover::after{width:calc(100% - 4rem)}
+.funding-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--white);margin-bottom:.6rem;letter-spacing:-.01em}
+.funding-card p{font-size:.83rem;color:rgba(255,255,255,.4);line-height:1.75}
+.funding-cta-wrap{text-align:center;padding-top:2.5rem}
+
+/* ── LEAD MAGNET ── */
+.lm-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.lm-eyebrow-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem}
+.lm-preview{display:flex;flex-direction:column;gap:.7rem;margin:1.75rem 0}
+.lm-point{font-size:.88rem;color:var(--muted);line-height:1.6;display:flex;gap:.7rem;align-items:flex-start}
+.lm-point::before{content:'✦';color:var(--terra);font-size:.65rem;flex-shrink:0;margin-top:.3rem}
+.lm-form-wrap{background:var(--ink);border:1px solid rgba(201,168,76,.15);border-radius:4px;padding:2.75rem;position:relative;overflow:hidden}
+.lm-form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--terra),var(--gold))}
+.lm-form-h{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:500;color:var(--white);margin-bottom:.4rem;letter-spacing:-.01em}
+.lm-form-sub{font-size:.83rem;color:rgba(255,255,255,.35);margin-bottom:1.75rem;line-height:1.6}
+.lm-input{width:100%;padding:.85rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;font-size:.9rem;font-family:'DM Sans',sans-serif;color:var(--white);margin-bottom:.75rem;outline:none;transition:border-color .2s}
+.lm-input::placeholder{color:rgba(255,255,255,.25)}
+.lm-input:focus{border-color:rgba(201,168,76,.5)}
+.lm-btn{width:100%;padding:.9rem;background:var(--terra);color:var(--white);border:none;border-radius:3px;font-size:.9rem;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .2s;letter-spacing:.04em}
+.lm-btn:hover{background:var(--terra2)}
+.lm-disc{font-size:.72rem;color:rgba(255,255,255,.2);margin-top:.875rem;text-align:center}
+
+/* ── STATS BANNER ── */
+.stats-banner{background:var(--terra);padding:5rem 3rem}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.banner-stat{}
+.banner-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--white);line-height:1;display:block;letter-spacing:-.03em}
+.banner-lbl{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:.5rem;line-height:1.4}
+
+/* ── CTA ── */
+.cta-section{padding:7rem 3rem;background:var(--ink);position:relative;overflow:hidden}
+.cta-texture{position:absolute;inset:0;opacity:.02;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:24px 24px}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-location{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
+.cta-location-dot{width:5px;height:5px;border-radius:50%;background:var(--terra3)}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:400;color:var(--white);line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem}
+.cta-h2 em{font-style:italic;color:var(--gold3)}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,.4);line-height:1.85;margin-bottom:2.75rem;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-points{display:flex;justify-content:center;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+.cta-pt{font-size:.78rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:.4rem}
+.cta-pt::before{content:'✓';color:var(--gold);font-weight:600}
+
+/* ── FOOTER ── */
+footer{background:var(--ink3);padding:4rem 3rem 2.5rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:3.5rem}
+.footer-brand{}
+.footer-logo{text-decoration:none;display:flex;align-items:baseline;gap:.3rem;margin-bottom:1.1rem}
+.footer-tagline{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.75;max-width:250px;font-weight:300}
+.footer-locations{display:flex;gap:1rem;margin-top:1.1rem;flex-wrap:wrap}
+.loc-badge{font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:100px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35)}
+.footer-col h4{font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.1rem}
+.footer-col a{display:block;font-size:.83rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.6rem;transition:color .2s;line-height:1.4}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,.2)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:.75rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:var(--gold)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .practices-grid{grid-template-columns:1fr 1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .story-inner{grid-template-columns:1fr}
+  .photo-placeholder{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero{padding:7rem 1.5rem 4rem}
+  .section{padding:4.5rem 1.5rem}
+  .practices-grid,.help-grid,.funding-grid,.lm-inner,.practices-intro,.funding-intro,.stats-inner{grid-template-columns:1fr}
+  .cta-section,.stats-banner{padding:4.5rem 1.5rem}
+  .footer-top{grid-template-columns:1fr}
+  .footer-inner{padding:0}
+  footer{padding:3rem 1.5rem 2rem}
+  .hero-stats{flex-wrap:wrap;gap:1.5rem}
+  .stat-item{border-right:none;padding-right:0;margin-right:0}
+  .stats-banner{padding:4rem 1.5rem}
+}
+
+/* ── HERO ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero-location{animation:fadeUp .5s ease both}
+.hero h1{animation:fadeUp .65s .1s ease both}
+.hero-rule{animation:fadeUp .5s .25s ease both}
+.hero-sub{animation:fadeUp .65s .2s ease both}
+.hero-btns{animation:fadeUp .65s .3s ease both}
+.hero-stats{animation:fadeUp .65s .4s ease both}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="#" class="nav-logo">BDC<span>.</span></a>
-    <div class="nav-links">
-      <a href="#divisions">Services</a>
-      <a href="#clients">Who We Help</a>
-      <a href="#funding-services">Funding</a>
-      <a href="#lead-magnet">Free Guide</a>
-      <a href="#why">Why BDC</a>
-      <a href="mailto:crissy@bdcreations.co">Contact</a>
-      <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="nav-cta">Book a Call</a>
-    </div>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-eyebrow">Lagos-Based · U.S.-Rooted · Africa-Ready</div>
-    <h1>We help American companies <em>launch and scale</em> in Nigeria &amp; West Africa.</h1>
-    <p class="hero-sub">
-      On-the-ground advisory from Lagos. Market entry strategy, customer operations setup, funding development,
-      and local partnership management — so you can expand into Africa without the expensive mistakes.
-    </p>
-    <div class="hero-actions">
-      <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-primary">Book a Discovery Call</a>
-      <a href="#divisions" class="btn-outline">Explore Our Services</a>
-    </div>
-    <div class="hero-proof">
-      <div class="proof-item">
-        <div class="proof-number">$14M+</div>
-        <div class="proof-label">Client funding secured</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-number">100+</div>
-        <div class="proof-label">Clients managed</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-number">90%+</div>
-        <div class="proof-label">Client retention</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-number">5</div>
-        <div class="proof-label">CRM platforms mastered</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="divisions" id="divisions">
-    <div class="divisions-header">
-      <div class="eyebrow">What We Do</div>
-      <h2>Two practices. One mission.</h2>
-    </div>
-    <div class="divisions-grid">
-      <div class="division-card card-navy">
-        <div class="division-number">Division I</div>
-        <h3 class="division-title">U.S.–Africa Expansion Advisory</h3>
-        <p class="division-desc">
-          For American companies entering Nigeria and West Africa. We reduce the risk, cost, and timeline
-          of African expansion with practical, on-the-ground advisory from Lagos.
-        </p>
-        <ul class="service-list">
-          <li>Market entry research &amp; go-to-market strategy</li>
-          <li>Regulatory navigation &amp; compliance guidance</li>
-          <li>CRM &amp; customer operations setup for African markets</li>
-          <li>Local partner &amp; vendor vetting and management</li>
-          <li>Fractional Head of Africa Operations (retainer)</li>
-          <li>Payment infrastructure &amp; pricing localization</li>
-          <li>In-market customer onboarding program design</li>
-          <li>Trade mission and market visit planning with in-person Lagos support</li>
-        </ul>
-        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="division-cta">Start Your Expansion →</a>
-      </div>
-
-      <div class="division-card card-light">
-        <div class="division-number">Division II</div>
-        <h3 class="division-title">Funding Strategy &amp; Grant Development</h3>
-        <p class="division-desc">
-          For nonprofits, small businesses, ecosystem builders, and Africa-facing initiatives.
-          We find the money, build the case, and help you secure it.
-        </p>
-        <ul class="service-list">
-          <li>Grant research, writing &amp; application management</li>
-          <li>Funding strategy &amp; capital roadmap development</li>
-          <li>Nonprofit program design &amp; donor alignment</li>
-          <li>Export readiness program consulting</li>
-          <li>Africa-facing initiative development &amp; positioning</li>
-          <li>Impact measurement &amp; reporting for funders</li>
-          <li>Small business funding navigation &amp; pitch prep</li>
-        </ul>
-        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="division-cta">Secure Your Funding →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="clients" id="clients">
-    <div class="clients-inner">
-      <div class="eyebrow">Who We Help</div>
-      <h2>Built for builders crossing borders.</h2>
-      <div class="clients-grid">
-        <div class="client-type">
-          <div class="client-icon">01</div>
-          <h3>U.S. Companies in Healthcare, EdTech, Agriculture, Logistics &amp; ICT</h3>
-          <p>
-            Entering Nigeria or West Africa in the sectors where demand is strongest and need someone
-            on the ground who speaks both American business and Nigerian reality.
-          </p>
-        </div>
-        <div class="client-type">
-          <div class="client-icon">02</div>
-          <h3>American Nonprofits &amp; NGOs</h3>
-          <p>
-            Expanding programming into West Africa and need grant management, local partner vetting,
-            or program implementation support.
-          </p>
-        </div>
-        <div class="client-type">
-          <div class="client-icon">03</div>
-          <h3>U.S. Consumer Brands</h3>
-          <p>
-            Launching products into Africa's 220M+ consumer market and need help with payment rails,
-            logistics, and local customer operations.
-          </p>
-        </div>
-        <div class="client-type">
-          <div class="client-icon">04</div>
-          <h3>Ecosystem Builders</h3>
-          <p>
-            Incubators, accelerators, and development organizations building programs that bridge
-            American capital with African innovation.
-          </p>
-        </div>
-        <div class="client-type">
-          <div class="client-icon">05</div>
-          <h3>Small Businesses &amp; Entrepreneurs</h3>
-          <p>
-            Seeking grants, funding strategy, or expert guidance on turning a business idea into a funded,
-            scaling operation.
-          </p>
-        </div>
-        <div class="client-type">
-          <div class="client-icon">06</div>
-          <h3>Export Readiness Programs</h3>
-          <p>
-            Government agencies and trade organizations preparing American businesses for African markets
-            need trusted on-the-ground insight.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="funding-services" id="funding-services">
-    <div class="funding-inner">
-      <div class="funding-top">
-        <div class="funding-eyebrow">Funding Strategy Services</div>
-        <h2 class="funding-heading">Clearer funding paths. Stronger applications. Better positioning.</h2>
-        <p class="funding-intro">
-          BDC Consulting helps businesses, nonprofits, and ecosystem builders identify the right funding path,
-          strengthen applications, and become more capital-ready for grants, loans, and strategic funding opportunities.
-        </p>
-      </div>
-
-      <div class="funding-grid">
-        <div class="funding-card">
-          <h3>Grant Readiness Review</h3>
-          <p>A focused review of your current funding readiness, strengths, gaps, and next steps before applying.</p>
-        </div>
-
-        <div class="funding-card">
-          <h3>Funding Strategy Roadmap</h3>
-          <p>A tailored plan identifying the best-fit funding paths, priorities, and action steps for your business or organization.</p>
-        </div>
-
-        <div class="funding-card">
-          <h3>Foundation Grant Proposal Support</h3>
-          <p>Hands-on proposal support for clients pursuing foundation grants and mission-aligned funding.</p>
-        </div>
-
-        <div class="funding-card">
-          <h3>Complex / Multi-Part Grant Applications</h3>
-          <p>Support for larger, more detailed applications requiring coordinated narratives, attachments, and submission planning.</p>
-        </div>
-
-        <div class="funding-card">
-          <h3>Ongoing Funding Advisory</h3>
-          <p>Monthly strategic support for clients who need continued guidance, application planning, and accountability.</p>
-        </div>
-      </div>
-
-      <div class="funding-cta">
-        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-primary">Book a Funding Strategy Call</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="lead-magnet" id="lead-magnet">
-    <div class="lead-inner">
-      <div class="lead-copy">
-        <div class="lead-eyebrow">Free Download</div>
-        <h2 class="lead-heading">Top 7 Mistakes U.S. Companies Make Entering Nigeria</h2>
-        <p>
-          Thinking about expanding into Nigeria? Start with the mistakes that cost companies time, money, and trust.
-          Download BDC Consulting’s practical guide and enter the market more strategically.
-        </p>
-        <ul class="lead-list">
-          <li>Why market interest is not the same as market readiness</li>
-          <li>Common partnership and distributor mistakes</li>
-          <li>What U.S. executives misunderstand about trust in Nigeria</li>
-          <li>Why localization matters more than most expect</li>
-          <li>What to pressure-test before committing serious resources</li>
-        </ul>
-      </div>
-
-      <div class="lead-form-card">
-        <h3>Get the free PDF</h3>
-        <form class="lead-form" action="https://formsubmit.co/crissy@bdcreations.co" method="POST">
-          <input type="text" name="first_name" placeholder="First Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <input type="text" name="company" placeholder="Company Name" />
-
-          <input type="hidden" name="_subject" value="New Nigeria Guide Lead" />
-          <input type="hidden" name="_next" value="https://www.bdcreations.co/thank-you.html" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <button type="submit" class="btn-primary" style="border:none; cursor:pointer;">Send Me the Guide</button>
-        </form>
-        <p class="lead-note">
-          
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="why" id="why">
-    <div class="why-inner">
-      <div class="why-left">
-        <div class="eyebrow">Why BDC</div>
-        <h2>Not a slide deck. A Lagos address.</h2>
-        <p>
-          Most African business advice comes from people who have never lived there. We are different.
-          BDC Consulting is led by Crystal Ndudiri, an American business strategist based in both Lagos, Nigeria,
-          and Atlanta, Georgia, with years of client management, funding strategy, and operations experience.
-          We do not just study the market. We live in it.
-        </p>
-      </div>
-
-      <div class="why-right">
-        <div class="why-item">
-          <div class="why-item-num">01</div>
-          <div>
-            <h4>On the Ground in Lagos</h4>
-            <p>Not advising from a distance. Physically present in Africa's largest economy, attending the meetings, vetting vendors, and reading the room.</p>
-          </div>
-        </div>
-
-        <div class="why-item">
-          <div class="why-item-num">02</div>
-          <div>
-            <h4>Bilingual in Business Culture</h4>
-            <p>Based in Lagos with family and rooted in the U.S. Fluent in American corporate expectations and Nigerian business realities. That cultural translation saves you months.</p>
-          </div>
-        </div>
-
-        <div class="why-item">
-          <div class="why-item-num">03</div>
-          <div>
-            <h4>Operations, Not Just Strategy</h4>
-            <p>We do not hand you a PDF and disappear. We set up your Salesforce, build onboarding flows, train your local team, and manage vendors. Fluent across HubSpot, Zoho, Zendesk, and Monday.com.</p>
-          </div>
-        </div>
-
-        <div class="why-item">
-          <div class="why-item-num">04</div>
-          <div>
-            <h4>$14M+ Funding Track Record</h4>
-            <p>A decade of helping organizations secure grants, loans, and capital. We know how to find money, build the case, and close it — for U.S. and Africa-facing initiatives alike.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-banner">
-    <h2>Ready to make your move into Africa?</h2>
-    <p>
-      Book a paid discovery call. In 60 minutes, we will assess your readiness and map your next steps —
-      whether that is market entry, funding, or both.
-    </p>
-    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-primary">Book Your Discovery Call →</a>
-  </section>
-
-  <footer>
-    <div class="footer-left">BDC<span>.</span> Consulting</div>
-    <div class="footer-right">
-      <a href="mailto:crissy@bdcreations.co">crissy@bdcreations.co</a>
-      <a href="https://www.linkedin.com/in/crystal-cck" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting">Book a Call</a>
-    </div>
-  </footer>
-
-  <div class="footer-copy">
-    <a href="privacy.html" style="margin-right: 1.5rem;">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <br />
-    &copy; 2026 BDC Consulting. All rights reserved. Lagos, Nigeria &middot; Atlanta, Georgia
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <span class="logo-bdc">BDC</span>
+    <span class="logo-consulting">Consulting</span>
+  </a>
+  <div class="nav-links">
+    <a href="#practices">Services</a>
+    <a href="#who-we-help">Who We Help</a>
+    <a href="#funding">Funding</a>
+    <a href="/digital">Digital Presence</a>
+    <a href="#guide">Free Guide</a>
+    <div class="nav-sep"></div>
+    <a href="mailto:crissy@bdcreations.co">Contact</a>
+    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="nav-cta">Book a Call</a>
   </div>
+  <div class="nav-toggle" onclick="toggleMob()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
+<div class="mob-menu" id="mobMenu">
+  <a href="#practices" onclick="toggleMob()">Services</a>
+  <a href="#who-we-help" onclick="toggleMob()">Who We Help</a>
+  <a href="#funding" onclick="toggleMob()">Funding</a>
+  <a href="/digital" onclick="toggleMob()">Digital Presence</a>
+  <a href="#guide" onclick="toggleMob()">Free Guide</a>
+  <a href="mailto:crissy@bdcreations.co" onclick="toggleMob()">Contact</a>
+  <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" onclick="toggleMob()" style="color:var(--gold)">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-warm-glow"></div>
+  <div class="hero-gold-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-location">
+        <span class="hero-location-dot"></span>
+        Lagos, Nigeria &nbsp;·&nbsp; Atlanta, Georgia &nbsp;·&nbsp; EST. 2024
+      </div>
+      <h1>We don't advise<br>on Africa.<br><em>We live here.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">BDC Consulting delivers on-the-ground market entry advisory, funding strategy, and digital presence solutions — for organizations serious about growth on both sides of the Atlantic.</p>
+      <div class="hero-btns">
+        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-gold">Book a Discovery Call</a>
+        <a href="#practices" class="btn-cream-outline">Explore Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">$14M+</span><div class="stat-lbl">Funding secured</div></div>
+        <div class="stat-item"><span class="stat-num">100+</span><div class="stat-lbl">Clients managed</div></div>
+        <div class="stat-item"><span class="stat-num">90%+</span><div class="stat-lbl">Retention rate</div></div>
+        <div class="stat-item"><span class="stat-num">3</span><div class="stat-lbl">Practice areas</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hcard-label">Practice Areas</div>
+      <div class="practice-links">
+        <a href="#practices" class="plink">
+          <span class="plink-num">I.</span>
+          <div class="plink-info">
+            <div class="plink-name">U.S.–Africa Expansion Advisory</div>
+            <div class="plink-desc">Market entry, operations & local partnerships in Nigeria & West Africa</div>
+          </div>
+          <span class="plink-arrow">→</span>
+        </a>
+        <a href="#funding" class="plink">
+          <span class="plink-num">II.</span>
+          <div class="plink-info">
+            <div class="plink-name">Funding Strategy & Grant Development</div>
+            <div class="plink-desc">Grant writing, capital roadmaps & funding navigation</div>
+          </div>
+          <span class="plink-arrow">→</span>
+        </a>
+        <a href="/digital" class="plink">
+          <span class="plink-num">III.</span>
+          <div class="plink-info">
+            <div class="plink-name">Digital Presence for Local Businesses</div>
+            <div class="plink-desc">Professional websites for medical & wellness practices in Metro Atlanta</div>
+          </div>
+          <span class="plink-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Lagos</span>
+    <span class="ticker-item">Atlanta</span>
+    <span class="ticker-item">Africa Advisory</span>
+    <span class="ticker-item">Funding Strategy</span>
+    <span class="ticker-item">Grant Development</span>
+    <span class="ticker-item">Digital Presence</span>
+    <span class="ticker-item">Nigeria</span>
+    <span class="ticker-item">West Africa</span>
+    <span class="ticker-item">Market Entry</span>
+    <span class="ticker-item">U.S.–Africa</span>
+    <span class="ticker-item">Metro Atlanta</span>
+    <span class="ticker-item">Lagos</span>
+    <span class="ticker-item">Atlanta</span>
+    <span class="ticker-item">Africa Advisory</span>
+    <span class="ticker-item">Funding Strategy</span>
+    <span class="ticker-item">Grant Development</span>
+    <span class="ticker-item">Digital Presence</span>
+    <span class="ticker-item">Nigeria</span>
+    <span class="ticker-item">West Africa</span>
+    <span class="ticker-item">Market Entry</span>
+    <span class="ticker-item">U.S.–Africa</span>
+    <span class="ticker-item">Metro Atlanta</span>
+  </div>
+</div>
+
+<!-- PRACTICES -->
+<section class="section bg-cream" id="practices">
+  <div class="section-inner">
+    <div class="practices-intro">
+      <div>
+        <div class="eyebrow">What We Do</div>
+        <h2 class="s-h2 s-h2-dark">Three practices.<br><em>One standard of excellence.</em></h2>
+      </div>
+      <p class="s-sub">Whether you're entering a new continent, securing your next round of funding, or building the digital presence your business deserves — every engagement gets the same precision and accountability.</p>
+    </div>
+    <div class="practices-grid reveal">
+
+      <div class="practice practice-featured">
+        <div class="practice-top">
+          <div class="practice-num">Division I.</div>
+          <span class="practice-icon">🌍</span>
+          <div class="practice-name">U.S.–Africa Expansion Advisory</div>
+          <div class="practice-tag">For American companies entering Nigeria and West Africa. On-the-ground strategy that reduces risk, cost, and time-to-market.</div>
+        </div>
+        <div class="practice-body">
+          <ul class="practice-list">
+            <li>Market entry research & go-to-market strategy</li>
+            <li>Regulatory navigation & compliance guidance</li>
+            <li>CRM & customer operations setup</li>
+            <li>Local partner & vendor vetting</li>
+            <li>Fractional Head of Africa Operations</li>
+            <li>Payment infrastructure & pricing localization</li>
+            <li>Trade mission & market visit planning</li>
+          </ul>
+          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="practice-cta cta-gold">Start Your Expansion →</a>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="practice-top">
+          <div class="practice-num">Division II.</div>
+          <span class="practice-icon">💰</span>
+          <div class="practice-name">Funding Strategy & Grant Development</div>
+          <div class="practice-tag">We find the money, build the case, and help you secure it.</div>
+        </div>
+        <div class="practice-body">
+          <ul class="practice-list">
+            <li>Grant research, writing & management</li>
+            <li>Funding strategy & capital roadmap</li>
+            <li>Nonprofit program design</li>
+            <li>Export readiness consulting</li>
+            <li>Impact measurement & reporting</li>
+            <li>Small business funding navigation</li>
+          </ul>
+          <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="practice-cta cta-terra">Secure Your Funding →</a>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="practice-top">
+          <div class="practice-num">Division III. <span class="practice-new">New</span></div>
+          <span class="practice-icon">💻</span>
+          <div class="practice-name">Digital Presence for Local Businesses</div>
+          <div class="practice-tag">For independent medical and wellness practices in Conyers & Metro Atlanta.</div>
+        </div>
+        <div class="practice-body">
+          <ul class="practice-list">
+            <li>Mobile-first WordPress websites</li>
+            <li>Online booking integration</li>
+            <li>Google Business optimization</li>
+            <li>Local SEO & speed optimization</li>
+            <li>Reputation strategy</li>
+            <li>Packages from $5,000</li>
+          </ul>
+          <a href="/digital" class="practice-cta cta-outline-ink">See Packages & Pricing →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CRYSTAL'S STORY -->
+<section class="section bg-ink" id="about">
+  <div class="section-inner">
+    <div class="story-inner">
+      <div>
+        <div class="eyebrow eyebrow-cream">Why BDC Consulting</div>
+        <div class="story-quote">
+          Most Africa business advice comes from people<br>
+          who have never lived there.
+          <em>Ours doesn't.</em>
+        </div>
+        <div class="story-rule"></div>
+        <div class="story-name">Crystal Ndudiri — Founder, BDC Consulting</div>
+      </div>
+      <div>
+        <!-- Add a professional photo here by uploading crystal-photo.jpg to your GitHub repo
+             and replacing the placeholder below with:
+             <img src="/crystal-photo.jpg" alt="Crystal Ndudiri" style="width:100%;border-radius:4px;margin-bottom:1.5rem"> -->
+        <div class="photo-placeholder">Your photo here</div>
+        <p class="story-body">Crystal Ndudiri is an American business strategist who relocated her family to Lagos — not to study the market, but to work in it. With over a decade of client management experience across 100+ enterprise and SMB accounts, she brings the kind of operational depth that most consultants simply don't have. She holds a Master's degree in IT & Security and a Microsoft Azure AI certification, and she's fluent across five CRM platforms. Her funding work has helped organizations secure more than $14 million. Her clients stay — 90% retention says everything about how she works.</p>
+        <div class="story-creds reveal">
+          <div class="cred-item">10+ years · 100+ enterprise & SMB accounts managed</div>
+          <div class="cred-item">Master's in IT & Security · Microsoft Azure AI Certified</div>
+          <div class="cred-item">Salesforce · HubSpot · Zoho · Zendesk · Intercom</div>
+          <div class="cred-item">$14M+ in client funding secured · 90%+ retention rate</div>
+          <div class="cred-item">Based in Lagos, Nigeria · Atlanta, Georgia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section class="section bg-cream2" id="who-we-help">
+  <div class="section-inner">
+    <div class="eyebrow">Who We Help</div>
+    <h2 class="s-h2 s-h2-dark">Built for builders<br><em>crossing borders.</em></h2>
+    <div class="help-grid reveal">
+      <div class="help-card">
+        <div class="help-num">01</div>
+        <h3>U.S. Companies in Healthcare, EdTech, Agriculture & ICT</h3>
+        <p>Entering Nigeria or West Africa and need someone who speaks both American business and Nigerian market reality.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-num">02</div>
+        <h3>American Nonprofits & NGOs</h3>
+        <p>Expanding programming into West Africa and need grant management, local partner vetting, or program implementation support.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-num">03</div>
+        <h3>U.S. Consumer Brands</h3>
+        <p>Launching into Africa's 220M+ consumer market and need help with payment rails, logistics, and local customer operations.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-num">04</div>
+        <h3>Small Businesses & Entrepreneurs</h3>
+        <p>Seeking grants, funding strategy, or expert guidance on turning a business idea into a funded, scaling operation.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-num">05</div>
+        <h3>Independent Medical & Wellness Practices</h3>
+        <p>Located in Conyers or Metro Atlanta and ready to build a professional online presence that consistently attracts new patients.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-num">06</div>
+        <h3>Ecosystem Builders & Export Programs</h3>
+        <p>Incubators, accelerators, and trade organizations building programs that bridge American capital with African innovation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDING DETAIL -->
+<section class="section bg-ink2" id="funding">
+  <div class="section-inner">
+    <div class="funding-intro">
+      <div>
+        <div class="eyebrow eyebrow-gold">Funding Strategy Services</div>
+        <h2 class="s-h2 s-h2-light">Clearer paths.<br><em style="color:var(--gold3)">Stronger applications.</em></h2>
+      </div>
+      <p class="s-sub s-sub-light">BDC Consulting helps businesses, nonprofits, and ecosystem builders identify the right funding path, strengthen applications, and become capital-ready — from first grant to ongoing funding strategy.</p>
+    </div>
+    <div class="funding-grid reveal">
+      <div class="funding-card">
+        <h3>Grant Readiness Review</h3>
+        <p>A focused review of your funding readiness — strengths, gaps, and the exact next steps before you apply anywhere.</p>
+      </div>
+      <div class="funding-card">
+        <h3>Funding Strategy Roadmap</h3>
+        <p>A tailored plan identifying your best-fit funding paths, priorities, and concrete action steps for your specific organization.</p>
+      </div>
+      <div class="funding-card">
+        <h3>Foundation Grant Proposal Support</h3>
+        <p>Hands-on proposal development for clients pursuing foundation grants and mission-aligned funding opportunities.</p>
+      </div>
+      <div class="funding-card">
+        <h3>Complex Multi-Part Applications</h3>
+        <p>Support for larger applications requiring coordinated narratives, attachments, and careful multi-stage submission planning.</p>
+      </div>
+      <div class="funding-card">
+        <h3>Ongoing Funding Advisory</h3>
+        <p>Monthly strategic support for clients who need continued guidance, application planning, and long-term accountability.</p>
+      </div>
+      <div class="funding-card" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border:1px dashed rgba(201,168,76,.2);background:transparent">
+        <p style="font-size:.83rem;color:rgba(255,255,255,.3);margin-bottom:1.25rem;line-height:1.7">Ready to find your funding path? Let's map it together.</p>
+        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-gold" style="font-size:.85rem;padding:.75rem 1.75rem">Book a Funding Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="section bg-cream" id="guide">
+  <div class="section-inner">
+    <div class="lm-inner">
+      <div>
+        <div class="eyebrow">Free Download</div>
+        <h2 class="s-h2 s-h2-dark">Top 7 Mistakes U.S. Companies Make<br><em>Entering Nigeria</em></h2>
+        <p class="s-sub" style="margin-top:.75rem">Thinking about expanding into Nigeria? Start with the mistakes that cost companies time, money, and trust in-market.</p>
+        <div class="lm-preview">
+          <div class="lm-point">Why market interest is not the same as market readiness</div>
+          <div class="lm-point">Common partnership and distributor mistakes</div>
+          <div class="lm-point">What U.S. executives misunderstand about trust in Nigeria</div>
+          <div class="lm-point">Why localization matters more than most companies expect</div>
+          <div class="lm-point">What to pressure-test before committing real resources</div>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted2);font-style:italic">Used by American executives, NGO directors, and entrepreneurs before their first move into West Africa.</p>
+      </div>
+      <div class="lm-form-wrap reveal">
+        <div class="lm-form-h">Get the Free PDF</div>
+        <div class="lm-form-sub">Enter your details and we'll send it straight to your inbox — no pitch, no fluff.</div>
+        <input type="text" class="lm-input" placeholder="Your name">
+        <input type="email" class="lm-input" placeholder="Your email address">
+        <button class="lm-btn" type="button">Send Me the Guide →</button>
+        <p class="lm-disc">No spam, ever. Your information is never shared or sold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<section class="stats-banner">
+  <div class="stats-inner">
+    <div class="banner-stat reveal">
+      <span class="banner-num">$14M+</span>
+      <div class="banner-lbl">Client funding secured across grants & capital programs</div>
+    </div>
+    <div class="banner-stat reveal reveal-d1">
+      <span class="banner-num">100+</span>
+      <div class="banner-lbl">Enterprise & SMB accounts managed</div>
+    </div>
+    <div class="banner-stat reveal reveal-d2">
+      <span class="banner-num">90%+</span>
+      <div class="banner-lbl">Client retention rate across all engagements</div>
+    </div>
+    <div class="banner-stat reveal reveal-d3">
+      <span class="banner-num">2</span>
+      <div class="banner-lbl">Continents. One firm that knows both.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-texture"></div>
+  <div class="cta-inner">
+    <div class="cta-location">
+      <span class="cta-location-dot"></span>
+      Lagos, Nigeria &nbsp;·&nbsp; Atlanta, Georgia
+    </div>
+    <h2 class="cta-h2">Your next move<br>deserves someone<br><em>already there.</em></h2>
+    <p class="cta-sub">Book a free 20-minute discovery call. We'll assess your situation — whether that's Africa expansion, funding strategy, or a new digital presence — and map your next steps clearly.</p>
+    <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting" class="btn-gold" style="font-size:1rem;padding:1rem 2.75rem;display:inline-block">Book Your Free Discovery Call</a>
+    <div class="cta-points">
+      <span class="cta-pt">Free 20-minute call</span>
+      <span class="cta-pt">No obligation</span>
+      <span class="cta-pt">Same-week availability</span>
+      <span class="cta-pt">Lagos & Atlanta based</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo nav-logo">
+          <span class="logo-bdc" style="color:var(--white)">BDC</span>
+          <span class="logo-consulting">Consulting</span>
+        </a>
+        <p class="footer-tagline">Strategy from inside the market. U.S.–Africa advisory, funding strategy, and digital presence solutions.</p>
+        <div class="footer-locations">
+          <span class="loc-badge">Lagos, NG</span>
+          <span class="loc-badge">Atlanta, GA</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#practices">Africa Advisory</a>
+        <a href="#funding">Funding Strategy</a>
+        <a href="/digital">Digital Presence</a>
+        <a href="#guide">Free Nigeria Guide</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Crystal</a>
+        <a href="#who-we-help">Who We Help</a>
+        <a href="mailto:crissy@bdcreations.co">Contact</a>
+        <a href="https://www.linkedin.com/in/crystal-cck" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <a href="https://calendly.com/crissy-bdcreations/free-discovery-call-bdc-consulting">Book a Discovery Call</a>
+        <a href="mailto:crissy@bdcreations.co">crissy@bdcreations.co</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 BDC Consulting. All rights reserved. · Lagos, Nigeria · Conyers, Georgia</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:crissy@bdcreations.co">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.borderBottomColor=
+    window.scrollY>20?'rgba(201,168,76,.18)':'rgba(201,168,76,.12)'
+})
+function toggleMob(){
+  document.getElementById('mobMenu').classList.toggle('open')
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mobMenu')
+  const t=document.querySelector('.nav-toggle')
+  if(!m.contains(e.target)&&!t.contains(e.target))m.classList.remove('open')
+})
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.12})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
 </body>
 </html>
